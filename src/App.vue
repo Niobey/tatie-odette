@@ -3,6 +3,15 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
+      <router-link to="/map">Map</router-link>
+      <router-link to="/programmation">Programmation</router-link>
+      <router-link to="/tiketoffice">TicketOffice</router-link>
+      <router-link to="/praticalinformations">PraticalInformations</router-link>
+      <router-link to="/partners">Parters</router-link>MeetArtists
+      <router-link to="/generalinformations">GeneralInformations</router-link>
+      <router-link to="/meetartists">MeetArtists</router-link>
+      <router-link to="/contact">Contact</router-link>
+      <router-link to="/legalnotice">LegalNotice</router-link>
     </div>
     <router-view/>
   </div>
