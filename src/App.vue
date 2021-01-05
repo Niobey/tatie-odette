@@ -16,19 +16,6 @@
     </button>
 
     <Navbar />
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-      <router-link to="/map">Map</router-link>
-      <router-link to="/programmation">Programmation</router-link>
-      <router-link to="/tiketoffice">TicketOffice</router-link>
-      <router-link to="/praticalinformations">PraticalInformations</router-link>
-      <router-link to="/partners">Parters</router-link>MeetArtists
-      <router-link to="/generalinformations">GeneralInformations</router-link>
-      <router-link to="/meetartists">MeetArtists</router-link>
-      <router-link to="/contact">Contact</router-link>
-      <router-link to="/legalnotice">LegalNotice</router-link>
-    </div> -->
     <router-view />
   </div>
 </template>
@@ -48,6 +35,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import 'styles/mixins';
+
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap");
 :root {
   --yellow: #fcf6bd;
@@ -60,10 +49,7 @@ export default {
 
   --font-size: 14px;
 }
-/* MIXINS */
-@function remCalc($target-px, $context: 14) {
-  @return ($target-px / $context) * 1rem;
-}
+
 /* GLOBAL */
 html,
 body, #app {

@@ -180,9 +180,7 @@ export default {
 </script>
 
 <style lang="scss">
-@function remCalc($target-px, $context: 16) {
-  @return ($target-px / $context) * 1rem;
-}
+@import '../styles/mixins';
 
 .menu {
   background: var(--blue);
