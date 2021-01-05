@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Programmation from "../views/Programmation.vue"
 
 Vue.use(VueRouter)
 
@@ -52,6 +53,7 @@ const routes = [
   {
     path: '/Programmation',
     name: 'Programmation',
+    component: Programmation,
   },
 
   {
