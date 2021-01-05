@@ -1,6 +1,6 @@
 <template>
   <div class="menu">
-    <button class="btn-menu">
+    <button @click="hideNav()" id="close">
       <svg
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
@@ -9,43 +9,257 @@
         viewBox="0 0 20 20"
         xml:space="preserve"
       >
-        <path id="XMLID_6_" class="burger0" d="M0 8.5h20v3H0z" />
-        <path id="XMLID_7_" class="burger0" d="M0 0h20v3H0z" />
-        <path id="XMLID_8_" class="burger0" d="M0 17h20v3H0z" />
+        <path id="XMLID_1_" class="close0" d="M1.1 18.9L18.9 1.1" />
+        <path id="XMLID_2_" class="close0" d="M1.1 1.1l17.8 17.8" />
       </svg>
     </button>
+
+    <ul class="menu--list">
+      <li @click="hideNav()">
+        <router-link to="/">{{ home }}</router-link>
+      </li>
+      <li @click="hideNav()">
+        <router-link to="/map">{{ map }}</router-link>
+      </li>
+      <li @click="hideNav()">
+        <router-link to="/programmation">{{ programmation }}</router-link>
+      </li>
+      <li @click="hideNav()">
+        <router-link to="/ticketoffice">Billetterie</router-link>
+      </li>
+      <li @click="hideNav()">
+        <router-link to="/praticalinformations">{{
+          practicalinformations
+        }}</router-link>
+      </li>
+      <li @click="hideNav()">
+        <router-link to="/partners">{{ partners }}</router-link>
+      </li>
+      <li @click="hideNav()">
+        <router-link to="/generalinformations">{{
+          generalInformations
+        }}</router-link>
+      </li>
+      <li @click="hideNav()">
+        <router-link to="/meetartists">{{ meetArtists }}</router-link>
+      </li>
+      <li @click="hideNav()">
+        <router-link to="/contact">{{ contact }}</router-link>
+      </li>
+    </ul>
+
+    <ul class="socialMedia">
+      <li>
+        <router-link to="#"
+          ><svg
+            width="33"
+            height="34"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>Facebook</title>
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M2.75 8.5c0-1.503.58-2.944 1.61-4.007a5.42 5.42 0 013.89-1.66h16.5a5.42 5.42 0 013.89 1.66A5.755 5.755 0 0130.25 8.5v17c0 1.503-.58 2.944-1.61 4.007a5.419 5.419 0 01-3.89 1.66H8.25a5.419 5.419 0 01-3.89-1.66A5.755 5.755 0 012.75 25.5v-17zm5.5-2.833a2.71 2.71 0 00-1.945.83A2.877 2.877 0 005.5 8.5v17c0 .752.29 1.472.805 2.003a2.71 2.71 0 001.945.83h8.25v-9.916h-1.375c-.365 0-.714-.15-.972-.415A1.439 1.439 0 0113.75 17c0-.376.145-.736.403-1.002.258-.265.607-.415.972-.415H16.5v-2.125c0-1.315.507-2.576 1.41-3.506A4.742 4.742 0 0121.312 8.5h.825c.365 0 .715.15.973.415.258.266.402.626.402 1.002 0 .375-.144.736-.402 1.001a1.355 1.355 0 01-.973.415h-.825c-.27 0-.539.055-.789.162a2.06 2.06 0 00-.669.46 2.13 2.13 0 00-.447.69 2.18 2.18 0 00-.157.813v2.125h2.887c.365 0 .715.15.973.415.258.266.402.626.402 1.002s-.144.736-.402 1.002a1.355 1.355 0 01-.973.415H19.25v9.916h5.5a2.71 2.71 0 001.945-.83A2.877 2.877 0 0027.5 25.5v-17c0-.751-.29-1.472-.805-2.003a2.71 2.71 0 00-1.945-.83H8.25z"
+              fill="#FCF6BD"
+            /></svg
+        ></router-link>
+      </li>
+      <li>
+        <router-link to="#"
+          ><svg
+            width="33"
+            height="33"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>Twitter</title>
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M20.417 7.78a4.244 4.244 0 00-4.162 5.078 1.376 1.376 0 01-1.516 1.633 15.354 15.354 0 01-8.022-3.498c.043.828.33 1.708.953 2.63l.933 1.38-1.533.653-.295.126c.22.252.484.509.78.763.394.339.813.65 1.25.93l.016.01h.001l2.129 1.29-2.228 1.114c-.11.055-.22.105-.33.149a7.341 7.341 0 001.57.998l1.912.903-1.601 1.381c-.873.753-1.752 1.316-2.892 1.613 1.749.931 3.7 1.416 5.68 1.412 6.609 0 11.93-5.273 11.93-11.734v-.715l.584-.411c.913-.641 1.558-1.507 2.02-2.499h-2.97l-.374-.784A4.243 4.243 0 0020.42 7.78h-.002zM4.907 17.817a1.375 1.375 0 00-.325 1.096c.155 1.102.814 2.05 1.542 2.775.198.197.41.385.633.565l-.103.027c-.662.165-1.554.2-3.04.055a1.375 1.375 0 00-1.118 2.33 14.735 14.735 0 0010.565 4.43c7.855 0 14.299-6.1 14.663-13.797 1.774-1.489 2.66-3.506 3.14-5.339a1.375 1.375 0 00-1.332-1.723h-3.235a6.993 6.993 0 00-12.85 3.216 12.67 12.67 0 01-6.49-4.09 1.375 1.375 0 00-2.301.316c-.833 1.818-.993 3.913-.063 6.045l-.322.137a1.375 1.375 0 00-.784 1.64c.256.897.83 1.689 1.419 2.317h.001z"
+              fill="#FCF6BD"
+            /></svg
+        ></router-link>
+      </li>
+      <li>
+        <router-link to="#"
+          ><svg
+            width="34"
+            height="34"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>Instagram</title>
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M2.833 8.5A5.667 5.667 0 018.5 2.833h17A5.667 5.667 0 0131.167 8.5v17a5.667 5.667 0 01-5.667 5.667h-17A5.666 5.666 0 012.833 25.5v-17zM8.5 5.667A2.833 2.833 0 005.667 8.5v17A2.833 2.833 0 008.5 28.333h17a2.833 2.833 0 002.833-2.833v-17A2.833 2.833 0 0025.5 5.667h-17zM17 12.75a4.25 4.25 0 100 8.5 4.25 4.25 0 000-8.5zM9.917 17a7.083 7.083 0 1114.167 0 7.083 7.083 0 01-14.167 0zm14.875-5.667a2.125 2.125 0 100-4.249 2.125 2.125 0 000 4.25z"
+              fill="#FCF6BD"
+            /></svg
+        ></router-link>
+      </li>
+
+      <li>
+        <router-link to="#"
+          ><svg
+            width="34"
+            height="34"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>Youtube</title>
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M11.114 6.765c3.672-.52 8.1-.52 11.772 0 3.337.473 5.922 2.813 6.415 5.335.6 3.053.6 6.747 0 9.8-.494 2.522-3.078 4.862-6.415 5.335-3.672.52-8.102.52-11.772 0-3.337-.473-5.92-2.813-6.415-5.335-.6-3.053-.6-6.747 0-9.8.494-2.522 3.078-4.862 6.415-5.335zM23.283 3.96c-3.934-.557-8.632-.557-12.566 0-4.271.604-8.025 3.652-8.797 7.596-.67 3.413-.67 7.476 0 10.888.772 3.944 4.526 6.992 8.797 7.596 3.934.557 8.632.557 12.566 0 4.271-.604 8.025-3.652 8.797-7.596.67-3.412.67-7.475 0-10.888-.772-3.944-4.526-6.991-8.797-7.596zm-8.33 6.195a1.416 1.416 0 00-2.203 1.178v11.334a1.416 1.416 0 002.203 1.178l8.5-5.666a1.417 1.417 0 000-2.358l-8.5-5.666zM20.113 17l-4.53 3.02v-6.039L20.113 17z"
+              fill="#FCF6BD"
+            /></svg
+        ></router-link>
+      </li>
+      <li>
+        <router-link to="#"
+          ><svg
+            width="33"
+            height="33"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>Snapchat</title>
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M9.966 5.596c1.625-1.93 3.927-2.846 6.534-2.846 2.668 0 4.956 1.078 6.55 3.043 1.417 1.746 2.218 4.103 2.364 6.843l.127.02.027.004c.234.033.513.074.803.13 1.074.208 2.907.733 3.538 2.7.316.99.158 1.905-.396 2.631-.477.626-1.16.987-1.647 1.206-.242.11-.484.203-.688.282.476 1.287 1.304 2.611 2.22 3.81.862 1.13.633 2.562.188 3.495-.447.935-1.412 2.004-2.817 2.064-.795.034-1.63.117-2.46.268-.376.069-.819.219-1.369.446-.328.134-.63.27-.954.414-.258.115-.53.236-.845.37-1.293.556-2.881 1.149-4.641 1.149-1.76 0-3.348-.593-4.64-1.148a50.948 50.948 0 01-.846-.371c-.316-.143-.634-.28-.954-.414-.55-.227-.993-.378-1.369-.447a18.175 18.175 0 00-2.46-.267c-1.405-.06-2.371-1.129-2.817-2.064-.445-.933-.674-2.365.189-3.495.92-1.207 1.753-2.541 2.227-3.836-.208-.082-.414-.17-.617-.263-.476-.223-1.122-.579-1.6-1.175-.532-.669-.767-1.53-.558-2.518.446-2.114 2.434-2.64 3.485-2.838.298-.055.588-.096.831-.13l.049-.008.165-.023c.136-2.922.932-5.312 2.381-7.032zm2.104 1.771c-1.05 1.245-1.758 3.245-1.758 6.188v.143l-.03.141c-.152.72-.706 1.058-.981 1.187-.29.136-.601.204-.821.245-.215.04-.454.073-.667.101l-.063.01c-.236.031-.47.068-.703.11-1.052.197-1.251.458-1.302.701-.036.175-.004.21.014.23l.005.006c.073.092.249.23.615.4.17.08.35.152.55.233l.05.02c.174.068.381.152.564.239.18.082.482.234.737.478.297.285.656.84.482 1.573-.501 2.105-1.765 4.132-2.972 5.713a.326.326 0 00-.022.146c0 .13.037.31.127.498s.206.333.313.42c.088.07.138.082.143.082.895.038 1.856.132 2.833.31.664.12 1.32.36 1.925.61.334.137.717.308 1.09.473.26.115.514.228.742.326 1.237.529 2.39.925 3.559.925s2.324-.396 3.558-.925c.229-.098.483-.212.743-.326.371-.165.756-.336 1.089-.473.605-.25 1.26-.49 1.925-.61.976-.18 1.939-.272 2.832-.31.009 0 .057-.011.145-.083.133-.116.24-.259.313-.419.078-.155.12-.325.127-.498 0-.128-.032-.158-.02-.143-1.208-1.581-2.473-3.61-2.975-5.716-.185-.783.24-1.347.532-1.608.262-.231.567-.376.752-.457.186-.082.395-.16.574-.228l.066-.026c.21-.079.398-.152.576-.233.371-.166.53-.294.583-.358a.607.607 0 00-.029-.131c-.125-.39-.479-.655-1.444-.842-.218-.04-.44-.074-.674-.11l-.052-.006c-.217-.03-.434-.065-.65-.105a3.217 3.217 0 01-.81-.256c-.289-.143-.798-.485-.943-1.173l-.03-.141v-.145c0-2.68-.698-4.702-1.773-6.026C19.863 6.229 18.371 5.5 16.5 5.5c-1.932 0-3.41.654-4.432 1.867h.002z"
+              fill="#FCF6BD"
+            /></svg
+        ></router-link>
+      </li>
+      <li>
+        <router-link to="#"
+          ><svg
+            width="34"
+            height="34"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>LinkedIn</title>
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M8.5 2.833A5.667 5.667 0 002.833 8.5v17A5.667 5.667 0 008.5 31.167h17a5.666 5.666 0 005.667-5.667v-17A5.667 5.667 0 0025.5 2.833h-17zM5.667 8.5A2.833 2.833 0 018.5 5.667h17A2.833 2.833 0 0128.333 8.5v17a2.834 2.834 0 01-2.833 2.833h-17A2.833 2.833 0 015.667 25.5v-17zm7.083 7.083a1.417 1.417 0 10-2.833 0v8.5a1.417 1.417 0 102.833 0v-8.5zm.708-4.958a2.125 2.125 0 11-4.25 0 2.125 2.125 0 014.25 0zM17 14.167c.482 0 .907.24 1.162.606a4.972 4.972 0 012.38-.606c3.06 0 4.958 2.728 4.958 5.059v4.857a1.417 1.417 0 11-2.833 0v-4.859c0-1.088-.935-2.225-2.125-2.225-.743 0-1.563.403-2.125 1.364v5.72a1.417 1.417 0 01-2.834 0v-8.5A1.417 1.417 0 0117 14.167z"
+              fill="#FCF6BD"
+            /></svg
+        ></router-link>
+      </li>
+    </ul>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      home: "Accueil",
+      map: "Plan du festival",
+      programmation: "Programmation",
+      ticketoffice: "Billetterie",
+      practicalinformations: "Informations pratiques",
+      partners: "Partenaires",
+      generalInformations: "Informations générales",
+      meetArtists: "Rencontrer les artistes",
+      contact: "Nous contacter",
+    };
+  },
+  methods: {
+    hideNav: function() {
+      document.querySelector(".menu").classList.remove("slideAnim");
+    },
+  },
+};
+</script>
 
 <style lang="scss">
 @function remCalc($target-px, $context: 16) {
   @return ($target-px / $context) * 1rem;
 }
 
-.btn-menu {
-  align-items: center;
-  background: var(--dark);
-  border: none;
-  box-shadow: 3px 4px 0px var(--green);
-  display: flex;
-  float: right;
-  height: 50px;
-  justify-content: center;
-  margin-top: remCalc(12);
-  cursor: pointer;
-  width: 50px;
+.menu {
+  background: var(--blue);
+  display: grid;
+  grid-template-rows: auto 20%;
+  height: 100%;
+  left: 100%;
+  margin: 0;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
 
-  @media (min-width: 576px) {
-    margin-top: remCalc(50);
-    margin-right: remCalc(50);
-  }
+  #close {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 30px;
+    top: 30px;
 
-  svg {
+    @media (min-width: 576px) {
+      top: remCalc(60);
+      right: remCalc(60);
+    }
+
+    svg {
+      filter: drop-shadow(1px 2px 0px rgba(0, 0, 0, 0.6));
       width: 20px;
+    }
   }
 
-  .burger0 {
-    fill: #fff;
+  .close0 {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 3;
+    stroke-miterlimit: 10;
+  }
+
+  &--list {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    font-size: 1.5em;
+    justify-content: space-evenly;
+    height: 70%;
+    margin: auto auto auto 5em;
+    padding: 0;
+    text-shadow: 1px 2px 0px white;
+  }
+
+  .socialMedia {
+    display: flex;
+    margin: auto;
+    padding: 0;
+
+    li {
+      margin: 0 2vw;
+    }
+
+    svg {
+      filter: drop-shadow(1px 2px 0px rgba(0, 0, 0, 0.3));
+    }
+  }
+}
+
+.slideAnim {
+  animation-name: slide;
+  animation-duration: 0.5s;
+  left: 0;
+}
+
+@keyframes slide {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0;
   }
 }
 </style>
