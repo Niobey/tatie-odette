@@ -3,8 +3,6 @@ import VueRouter from 'vue-router'
 import Contact from '../views/Contact.vue'
 import GeneralInformations from '../views/GeneralInformations.vue'
 import Home from '../views/Home.vue'
-import Map from '../views/Map.vue'
-import Programmation from "../views/Programmation.vue"
 import LegalNotice from '../views/LegalNotice.vue'
 import Map from '../views/Map.vue'
 import MeetArtists from '../views/MeetArtists.vue'
