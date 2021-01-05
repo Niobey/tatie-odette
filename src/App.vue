@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <!-- <Navbar /> -->
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
@@ -13,29 +14,60 @@
       <router-link to="/contact">Contact</router-link>
       <router-link to="/legalnotice">LegalNotice</router-link>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+// import Navbar from "./components/Navbar.vue";
+
+// export default {
+//   components: {
+//     Navbar,
+//   },
+// };
+</script>
+
+<style lang="scss">
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap");
+
+:root {
+  --yellow: #fcf6bd;
+  --blue: #a9def9;
+  --green: #d0f4de;
+  --orange: #ff8e4e;
+  --pink: #e4c1f9;
+  --grey: #989898;
+  --dark: #2f2f2f;
 }
 
-#nav {
-  padding: 30px;
+/* MIXINS */
+
+@function remCalc($target-px, $context: 16) {
+  @return ($target-px / $context) * 1rem;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+/* GLOBAL */
+
+body {
+  font-family: "Raleway", sans-serif;
+  font-size: remCalc(14);
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+h1 {
+  border-bottom: 3px solid var(--orange);
+  font-size: remCalc(18);
+  font-weight: 900;
+  line-height: remCalc(28);
+}
+
+h2 {
+  font-size: remCalc(16);
+  font-weight: 900;
+}
+
+a {
+  text-decoration: none;
+  color: var(--dark);
 }
 </style>
