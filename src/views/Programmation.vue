@@ -1,5 +1,6 @@
 <template>
   <div class="programmation">
+    <h1>Programmation</h1>
     <div class="container">
       <div class="card">
         <div class="card_title">
@@ -13,9 +14,13 @@
 </template>
 
 <style lang="scss">
+.container{
+  margin-top: 10em;
+}
 
 .card {
-  width: 100%;
+  margin: auto;
+  width: 80%;
   height: 140px;
   margin-bottom: 10px;
   font-family: Helvetica;
@@ -27,19 +32,17 @@
     background: #FCF5BE;
     display: flex;
     border-bottom: 2px solid #FF8E4E;
+    padding-top: .4em;
   }
 
   .card_title h3{
 width: 92px;
-height: 20px;
-left: 22px;
-top: 11em;
+margin: 0;
 
 font-family: Raleway;
 font-style: normal;
 font-weight: 800;
 font-size: 12px;
-line-height: 20px;
 
 color: #000000;
   }
@@ -56,6 +59,7 @@ font-weight: normal;
 font-size: 12px;
 line-height: 14px;
 text-align: right;
+margin-left: auto;
 
 color: #000000;
   }
