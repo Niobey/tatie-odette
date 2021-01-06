@@ -14,7 +14,7 @@
     <Dots class="dots illu" />
     <Logo id="home-logo" title="Festival Nation Sounds" />
     <router-link class="begin" to="/programmation">
-      <button class="btn">Voir la programmation</button>
+      <button>Voir la programmation</button>
     </router-link>
   </div>
 </template>
@@ -147,16 +147,16 @@ export default {
 .begin {
   transform: translate(0%, 3em);
   z-index: 10;
-}
 
-.btn {
-  background: white;
-  border-radius: 50px;
-  border: 1px solid black;
-  box-shadow: -2px 5px 0 var(--blue);
-  cursor: pointer;
-  font-weight: 700;
-  padding: 1em 4em;
+  button {
+    background: white;
+    border-radius: 50px;
+    border: 1px solid black;
+    box-shadow: -2px 5px 0 var(--blue);
+    cursor: pointer;
+    font-weight: 700;
+    padding: 1em 4em;
+  }
 }
 
 #home-logo {

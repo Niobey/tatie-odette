@@ -40,7 +40,7 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap");
 
 :root {
-  --yellow: #FCF5BE;
+  --yellow: #fcf5be;
   --blue: #a9def9;
   --green: #d0f4de;
   --orange: #ff8e4e;
@@ -81,6 +81,11 @@ h2 {
 a {
   text-decoration: none;
   color: var(--dark);
+
+  &:hover {
+    text-decoration: none;
+    color: var(--orange);
+  }
 }
 
 ul {
