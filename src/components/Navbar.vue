@@ -192,6 +192,7 @@ export default {
   overflow: hidden;
   position: fixed;
   width: 100%;
+  z-index: 500;
 
   #close {
     background: transparent;
