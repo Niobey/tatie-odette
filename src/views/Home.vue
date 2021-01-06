@@ -14,6 +14,9 @@
     <LeavesLeft class="leaves-left illu" />
     <Dots class="dots illu" />
     <Logo id="home-logo" />
+    <router-link class="begin" to="/programmation">
+      <button class="btn">Voir la programmation</button>
+    </router-link>
   </div>
 </template>
 
@@ -52,6 +55,7 @@ export default {
   background: var(--yellow);
   align-items: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   height: 100%;
   margin: 0;
@@ -144,6 +148,20 @@ export default {
     top: 20vh;
     width: clamp(15rem, 30vw, 20rem);
   }
+}
+
+.begin {
+  transform: translate(0%, 3em);
+  z-index: 10;
+}
+
+.btn {
+  padding: 1em 4em;
+  border: 1px solid black;
+  background: white;
+  border-radius: 50px;
+  box-shadow: -2px 5px 0 var(--blue);
+  font-weight: 700;
 }
 
 #home-logo {
