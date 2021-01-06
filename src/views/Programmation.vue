@@ -2,10 +2,10 @@
   <div class="programmation">
     <h1>Programmation</h1>
     <div class="container">
-      <div class="card" v-for="(card, index) in cards" :key="index">
+      <div class="card_prog" v-for="(card, index) in cards" :key="index">
         <div class="card_title">
           <h3>{{card.artiste}}</h3>
-          <span>/ {{card.scene}} / {{card.jour}} / {{card.heure}} /</span>
+          <span> {{card.scene}} / {{card.jour}} / {{card.heure}} </span>
         </div>
         <div class="container_img">
           <img class="card_img" :src="card.img" />
@@ -17,6 +17,16 @@
 /***************************************************JS****************************************************************************** */
 
 <script>
+let type = [
+  "rap",
+  "rock", 
+  "metal",
+  "pop",
+  "electro",
+  "folk",
+  "jazz",
+  "alternatif"
+] 
 
 let artiste = [
   "Booba",
@@ -46,7 +56,7 @@ let heure = [
   "21h",
   "22h",
   "23h",
-  "00h00",
+  "00h",
   "01h00", 
 ]
 
@@ -60,6 +70,7 @@ let jour = [
 const cardsData = [
   {
     artiste: artiste[2],
+    type: type[0],
     img: "https://media.virginradio.fr/article-4260166-head-f8/petit-biscuit.jpg",
     scene: scene[0],
     jour: jour[2],
@@ -103,7 +114,7 @@ export default {
   margin-top: 10em;
 }
 
-.card {
+.card_prog {
   margin: 2em auto auto auto;
   width: 80%;
   height: 140px;
