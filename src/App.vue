@@ -29,13 +29,13 @@ export default {
   methods: {
     showMenu: function() {
       document.querySelector(".menu").classList.add("slideAnim");
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="scss">
-@import 'styles/mixins';
+@import "styles/mixins";
 
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap");
 
@@ -48,13 +48,13 @@ export default {
   --grey: #989898;
   --dark: #2f2f2f;
 
-
   --font-size: 14px;
 }
 
 /* GLOBAL */
 html,
-body, #app {
+body,
+#app {
   font-family: "Raleway", sans-serif;
   font-size: var(--font-size);
   margin: 0;
@@ -94,18 +94,19 @@ ul {
   background: var(--dark);
   border: none;
   box-shadow: 3px 4px 0px var(--green);
+  cursor: pointer;
   display: flex;
-  float: right;
   height: 50px;
   justify-content: center;
-  margin-top: remCalc(20);
-  margin-right: remCalc(22);
-  cursor: pointer;
+  position: fixed;
+  right: remCalc(22);
+  top: remCalc(20);
   width: 50px;
+  z-index: 10;
 
   @media (min-width: 576px) {
-    margin-top: remCalc(50);
-    margin-right: remCalc(50);
+    top: remCalc(50);
+    right: remCalc(50);
   }
 
   svg {

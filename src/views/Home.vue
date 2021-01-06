@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <h1>Home page</h1>
     <div class="circle-white illu"></div>
     <div class="circle-orange illu"></div>
     <SunBlue class="sun-blue illu" />
@@ -13,7 +12,7 @@
     <LeavesRight class="leaves-right illu" />
     <LeavesLeft class="leaves-left illu" />
     <Dots class="dots illu" />
-    <Logo id="home-logo" />
+    <Logo id="home-logo" title="Festival Nation Sounds" />
     <router-link class="begin" to="/programmation">
       <button class="btn">Voir la programmation</button>
     </router-link>
@@ -62,11 +61,6 @@ export default {
   overflow: hidden;
   position: absolute;
   width: 100%;
-  z-index: -1;
-
-  h1 {
-    display: none;
-  }
 
   img {
     border: none;
@@ -156,12 +150,13 @@ export default {
 }
 
 .btn {
-  padding: 1em 4em;
-  border: 1px solid black;
   background: white;
   border-radius: 50px;
+  border: 1px solid black;
   box-shadow: -2px 5px 0 var(--blue);
+  cursor: pointer;
   font-weight: 700;
+  padding: 1em 4em;
 }
 
 #home-logo {
