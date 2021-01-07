@@ -14,65 +14,102 @@ import TicketOffice from '../views/TicketOffice.vue'
 
 Vue.use(VueRouter)
 
+const ns = "Nation Sounds - ";
+
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: {
+      title: ns + "Accueil"
+    }
   },
   {
     path: '/Contact',
     name: 'Contact',
-    component: Contact
+    component: Contact,
+    meta: {
+      title: ns + "Contact"
+    }
   },
   {
     path: '/GeneralInformations',
     name: 'GeneralInformations',
-    component: GeneralInformations
+    component: GeneralInformations,
+    meta: {
+      title: ns + "Informations générales"
+    }
   },
   {
     path: '/LegalNotice',
     name: 'LegalNotice',
-    component: LegalNotice
+    component: LegalNotice,
+    meta: {
+      title: ns + "Mentions légales"
+    }
   },
   {
     path: '/Map',
     name: 'Map',
-    component: Map
+    component: Map,
+    meta: {
+      title: ns + "Plan"
+    }
   },
   {
     path: '/MeetArtists',
     name: 'MeetArtists',
-    component: MeetArtists
+    component: MeetArtists,
+    meta: {
+      title: ns + "Rencontrer les artistes"
+    }
   },
   
   {
     path: '/Partners',
     name: 'Partners',
-    component: Partners
+    component: Partners,
+    meta: {
+      title: ns + "Partenaires"
+    }
   },
   
   {
     path: '/PraticalInformations',
     name: 'PraticalInformations',
-    component: PraticalInformations
+    component: PraticalInformations,
+    meta: {
+      title: ns + "Informations Pratiques"
+    }
   },
 
   {
     path: '/Programmation',
     name: 'Programmation',
     component: Programmation,
+    meta: {
+      title: ns + "Programmation"
+    }
   },
 
   {
     path: '/TicketOffice',
     name: 'TicketOffice',
-    component: TicketOffice
+    component: TicketOffice,
+    meta: {
+      title: ns + "Billetterie"
+    }
   },
 ]
 
 const router = new VueRouter({
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title
+  next()
 })
 
 export default router
