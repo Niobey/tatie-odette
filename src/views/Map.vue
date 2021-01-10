@@ -27,6 +27,8 @@ import { latLng } from "leaflet";
 import { LMap, LTileLayer, LMarker, LIcon, LGeoJson } from "vue2-leaflet";
 // Geo Json sont des coordonnées pour ajouter un svg sur la map
 
+// https://www.npmjs.com/package/vue2-leaflet-rotatedmarker
+
 export default {
   name: "Map",
   components: {
@@ -65,10 +67,11 @@ export default {
     onLocationFound(location) {
       // https://github.com/vue-leaflet/Vue2Leaflet/issues/476
       this.marker = latLng(location.latitude, location.longitude);
+      // console.log(location.latitude, location.longitude);
+      //     navigator.geolocation.getCurrentPosition(function(position) {
+      //   console.log(position.coords.latitude, position.coords.longitude);
+      // });
     },
-    //     navigator.geolocation.getCurrentPosition(function(position) {
-    //   faireQqc(position.coords.latitude, position.coords.longitude);
-    // });
   },
 };
 </script>
