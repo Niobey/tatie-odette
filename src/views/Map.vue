@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <Plan />
-    <div>
+  <div class="map-container">
+    <!-- <Plan /> -->
+    <!-- <div>
       <span v-if="loading">Loading...</span>
       <label for="checkbox">GeoJSON Visibility</label>
       <input id="checkbox" v-model="show" type="checkbox" />
@@ -9,14 +9,12 @@
       <input id="checkboxTooltip" v-model="enableTooltip" type="checkbox" />
       <input v-model="fillColor" type="color" />
       <br />
-    </div>
-    <l-map :zoom="zoom" :center="center" style="height: 500px; width: 100%">
+    </div> -->
+    <l-map :zoom="zoom" :center="center" class="map">
       <l-tile-layer :url="url" :attribution="attribution" />
       <l-geo-json
         v-if="show"
         :geojson="geojson"
-        :options="options"
-        :options-style="styleFunction"
       />
       <l-marker :lat-lng="marker" />
     </l-map>
@@ -24,12 +22,12 @@
 </template>
 
 <script>
-import Navbar from "./components/Plan.vue";
+import Plan from "../components/Plan.vue";
 import { latLng } from "leaflet";
 import { LMap, LTileLayer, LMarker, LGeoJson } from "vue2-leaflet";
 
 export default {
-  name: "Example",
+  name: "Map",
   components: {
     LMap,
     LTileLayer,
@@ -41,58 +39,30 @@ export default {
       loading: false,
       show: true,
       enableTooltip: true,
-      zoom: 6,
-      center: [48, -1.219482],
+      zoom: 17,
+      center: [47.239543, -1.510883],
       geojson: null,
-      fillColor: "#e4ce7f",
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      marker: latLng(47.41322, -1.219482),
+      // marker: latLng(48.944021, 2.394466),
+      marker: latLng(47.2381374,-1.5095204),
     };
-  },
-  computed: {
-    options() {
-      return {
-        onEachFeature: this.onEachFeatureFunction,
-      };
-    },
-    styleFunction() {
-      const fillColor = this.fillColor; // important! need touch fillColor in computed for re-calculate when change fillColor
-      return () => {
-        return {
-          weight: 2,
-          color: "#ECEFF1",
-          opacity: 1,
-          fillColor: fillColor,
-          fillOpacity: 1,
-        };
-      };
-    },
-    onEachFeatureFunction() {
-      if (!this.enableTooltip) {
-        return () => {};
-      }
-      return (feature, layer) => {
-        layer.bindTooltip(
-          "<div>code:" +
-            feature.properties.code +
-            "</div><div>nom: " +
-            feature.properties.nom +
-            "</div>",
-          { permanent: false, sticky: true }
-        );
-      };
-    },
-  },
-  async created() {
-    this.loading = true;
-    const response = await fetch(
-      "https://rawgit.com/gregoiredavid/france-geojson/master/regions/pays-de-la-loire/communes-pays-de-la-loire.geojson"
-    );
-    const data = await response.json();
-    this.geojson = data;
-    this.loading = false;
   },
 };
 </script>
+
+<style lang="scss">
+.map-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.map {
+  max-height: 500px;
+  width: 50%;
+  max-width: 800px;
+}
+</style>

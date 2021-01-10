@@ -1,15 +1,15 @@
 <template>
   <div>
-    <Plan />
+    <PlanFestival />
   </div>
 </template>
 
 <script>
-import Plan from "..assets/plan.svg";
+import PlanFestival from "../assets/plan.svg";
 
 export default {
   components: {
-    Plan,
+    PlanFestival,
   },
 };
 </script>
