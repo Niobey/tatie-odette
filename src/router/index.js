@@ -10,6 +10,7 @@ import MeetArtists from '../views/MeetArtists.vue'
 import Partners from '../views/Partners.vue'
 import PraticalInformations from '../views/PraticalInformations.vue'
 import TicketOffice from '../views/TicketOffice.vue'
+import BackOffice from '../views/BackOffice'
 
 
 Vue.use(VueRouter)
@@ -100,6 +101,15 @@ const routes = [
     meta: {
       title: ns + "Billetterie"
     }
+  },
+
+    {
+      path: '/BackOffice',
+      name: 'BackOffice',
+      component: BackOffice,
+      meta: {
+        title: ns + "Back Office"
+      }
   },
 ]
 
