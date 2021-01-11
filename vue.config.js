@@ -1,5 +1,4 @@
 const path = require('path');
-const path = require('path');
 
 module.exports = {
   chainWebpack: (config) => {
@@ -8,25 +7,25 @@ module.exports = {
 
   },
   
-  // configureWebpack: {
-  //   module: {
-  //     rules: [
-  //       {
-  //         test: /\.svg$/,
-  //         loader: "vue-svg-loader",
-  //       },
-  //     ],
-  //   },
-  // },
+  configureWebpack: {
+    module: {
+      rules: [
+        {
+          test: /\.svg$/,
+          loader: "vue-svg-loader",
+        },
+      ],
+    },
+  },
 };
 
 
-function addStyleResource (rule) {
-  rule.use('style-resource')
-    .loader('style-resources-loader')
-    .options({
-      patterns: [
-        path.resolve(__dirname, './src/styles/imports.styl'),
-      ],
-    })
-}
+// function addStyleResource (rule) {
+//   rule.use('style-resource')
+//     .loader('style-resources-loader')
+//     .options({
+//       patterns: [
+//         path.resolve(__dirname, './src/styles/imports.styl'),
+//       ],
+//     })
+// }
