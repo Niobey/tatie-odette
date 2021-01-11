@@ -22,8 +22,9 @@
       <l-tile-layer :url="url" :attribution="attribution" :compass="compass" />
       <l-geo-json v-if="show" :geojson="geojson" />
 
-      <l-marker :lat-lng="user">
+      <l-marker :lat-lng="userLocation">
         <l-icon :icon-anchor="staticAnchor" class-name="arrow-marker">
+          <!-- <img :src="setIcon(marker.type)" class="marker" /> -->
           <ArrowMarker class="arrow-marker" />
         </l-icon>
       </l-marker>
@@ -38,7 +39,6 @@
 </template>
 
 <script>
-import Stage from "../assets/markers/stage.svg";
 import Plan from "../components/Plan.vue";
 import ArrowMarker from "../assets/markers/marker-arrow.svg";
 import { latLng, Control } from "leaflet";
@@ -61,6 +61,12 @@ import {
 // Geo Json sont des coordonnées pour ajouter un svg sur la map
 
 const poi = [
+  // {
+  //   name: "Moi",
+  //   lat: 47.206557,
+  //   lng: -1.54021,
+  //   type: "user",
+  // },
   {
     name: "Scène 1",
     lat: 47.206557,
@@ -70,13 +76,13 @@ const poi = [
   {
     name: "Scène 2",
     lat: 47.205621,
-    lng: -1.541640,
+    lng: -1.54164,
     type: "stage",
   },
   {
     name: "Scène 3",
     lat: 47.203945,
-    lng: -1.542000,
+    lng: -1.542,
     type: "stage",
   },
 ];
@@ -91,7 +97,6 @@ export default {
     LIcon,
     ArrowMarker,
     LControl,
-    Stage,
   },
   data() {
     return {
@@ -103,7 +108,7 @@ export default {
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      user: latLng(47.20558, -1.538199),
+      userLocation: latLng(47.20558, -1.538199),
       staticAnchor: [22, 37],
       enableHighAccuracy: true,
       compass: Compass,
@@ -160,7 +165,7 @@ export default {
     },
     onLocationFound(location) {
       // https://github.com/vue-leaflet/Vue2Leaflet/issues/476
-      this.marker = latLng(location.latitude, location.longitude);
+      this.userLocation = latLng(location.latitude, location.longitude);
     },
     setLatLng(lat, lng) {
       return latLng(lat, lng);
