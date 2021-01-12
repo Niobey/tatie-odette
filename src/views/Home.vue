@@ -14,7 +14,7 @@
     <Dots class="dots illu" />
     <Logo id="home-logo" title="Festival Nation Sounds" />
     <router-link class="begin" to="/programmation">
-      <button>Voir la programmation</button>
+      <button type="button">Voir la programmation</button>
     </router-link>
   </div>
 </template>

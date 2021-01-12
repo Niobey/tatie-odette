@@ -107,7 +107,7 @@ ul {
   right: remCalc(22);
   top: remCalc(20);
   width: 50px;
-  z-index: 10;
+  z-index: 500;
 
   @media (min-width: 576px) {
     top: remCalc(50);
