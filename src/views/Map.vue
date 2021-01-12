@@ -1,40 +1,55 @@
 <template>
-  <div class="map-container">
-    <!-- <Plan /> -->
-    <l-map
-      :zoom="zoom"
-      :center="center"
-      :enableHighAccuracy="enableHighAccuracy"
-      @ready="onReady"
-      @locationfound="onLocationFound"
-      class="map"
-    >
-      <l-marker
-        v-for="(marker, index) in markers"
-        :key="index"
-        :lat-lng="setLatLng(marker.lat, marker.lng)"
+  <div class="map-page">
+    <h1>Plan du festival</h1>
+    <div class="map-container">
+      <div class="container-sort">
+        <!-- A compléter dynamiquement avec les data -->
+        <button type="button" class="btn-sort">WC</button>
+        <button type="button" class="btn-sort">Scènes</button>
+        <button type="button" class="btn-sort">Bars</button>
+        <button type="button" class="btn-sort">Restauraurants</button>
+        <button type="button" class="btn-sort btn-sort-now">
+          Concert en ce moment
+        </button>
+      </div>
+      <l-map
+        :zoom="zoom"
+        :center="center"
+        :enableHighAccuracy="enableHighAccuracy"
+        @ready="onReady"
+        @locationfound="onLocationFound"
+        class="map"
       >
-        <l-icon :icon-anchor="staticAnchor">
-          <img :src="setIcon(marker.type)" class="marker" />
-        </l-icon>
-      </l-marker>
+        <l-marker
+          v-for="(marker, index) in markers"
+          :key="index"
+          :lat-lng="setLatLng(marker.lat, marker.lng)"
+        >
+          <l-icon :icon-anchor="staticAnchor">
+            <img :src="setIcon(marker.type)" class="marker" />
+          </l-icon>
+        </l-marker>
 
-      <l-tile-layer :url="url" :attribution="attribution" :compass="compass" />
-      <l-geo-json v-if="show" :geojson="geojson" />
+        <l-tile-layer
+          :url="url"
+          :attribution="attribution"
+          :compass="compass"
+        />
+        <l-geo-json v-if="show" :geojson="geojson" />
 
-      <l-marker :lat-lng="userLocation">
-        <l-icon :icon-anchor="staticAnchor" class-name="arrow-marker">
-          <!-- <img :src="setIcon(marker.type)" class="marker" /> -->
-          <ArrowMarker class="arrow-marker" />
-        </l-icon>
-      </l-marker>
-      <l-geo-json :geojson="geojson" :options-style="styleGeo"></l-geo-json>
-      <!-- <l-control position="bottomleft">
+        <l-marker :lat-lng="userLocation">
+          <l-icon :icon-anchor="staticAnchor" class-name="arrow-marker">
+            <ArrowMarker class="arrow-marker" />
+          </l-icon>
+        </l-marker>
+        <l-geo-json :geojson="geojson" :options-style="styleGeo"></l-geo-json>
+        <!-- <l-control position="bottomleft">
         <button>
           I am a useless button!
         </button>
       </l-control> -->
-    </l-map>
+      </l-map>
+    </div>
   </div>
 </template>
 
@@ -201,16 +216,23 @@ export default {
 </script>
 
 <style lang="scss">
+.map-page {
+  min-height: 100%;
+}
+
 .map-container {
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100%;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 2em 0;
+  width: 100%;
 
   .map {
-    max-height: 500px;
-    width: 50%;
-    max-width: 800px;
+    border: 1px solid black;
+    box-shadow: -8px 10px 0px var(--pink);
+    height: 500px;
+    width: clamp(320px, 80vw, 56.25rem);
   }
 
   .arrow-marker {
@@ -225,6 +247,24 @@ export default {
   .marker {
     height: 35px;
     // transform: translate(-50%, -50%);
+  }
+
+  .container-sort {
+    margin: 2em 0;
+    width: clamp(320px, 80vw, 56.25rem);
+  }
+
+  .btn-sort {
+    background: var(--green);
+    border: 1px solid black;
+    border-radius: 1em;
+    box-shadow: -2px 5px 0px var(--blue);
+    margin: 0.5em;
+    padding: 0 1em;
+
+    &-now {
+      background: var(--pink);
+    }
   }
 }
 </style>
