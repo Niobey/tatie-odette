@@ -50,6 +50,11 @@ padding-bottom: 15%;
   padding-right: 5vw;
   margin-top: 5vh;
  
+ .card{
+   img{
+     padding: 1.25rem;
+   }
+ }
 
   h4{
     text-align: center;
