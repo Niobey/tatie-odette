@@ -30,6 +30,7 @@
           id="button-programmation"
         >
           <b-dropdown-item value="All" @click="selectedType = 'All'">
+            <strong>Tous</strong>
           </b-dropdown-item>
           <b-dropdown-item
             v-for="hour in hours"
@@ -87,7 +88,7 @@
     <div class="container-fluid d-flex flex-wrap">
       <div
         class="card_prog col-md-6 col-xl-4"
-        v-for="(card, index) in filteredCategory"
+        v-for="(card, index) in filteredCategory "
         :key="index"
       >
         <div class="card_title">
@@ -105,6 +106,8 @@
 */
 
 <script>
+
+
 let types = [
   "rap",
   "rock",
