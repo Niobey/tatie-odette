@@ -6,7 +6,7 @@
     <div class="container-bo">
       <h2 class="title">BackOffice</h2>
       <p>Cliquez sur un bouton pour modifier une page</p>
-      <router-link to="/programmation-administer">
+      <router-link to="/programmationadminister">
         <button>Programmation</button>
       </router-link>
       <router-link to="/ticket-administer">
