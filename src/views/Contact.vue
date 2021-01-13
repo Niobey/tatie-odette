@@ -67,4 +67,3 @@
   border: 2px solid var(--blue);
 }
 </style>
-

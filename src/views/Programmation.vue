@@ -6,8 +6,7 @@
         <b-dropdown
           text="Jour"
           variant="outline-danger"
-          class="s-1"
-          id="button-programmation"
+          class="s-1 button-programmation"
         >
           <b-dropdown-item value="All" @click="selectedType = 'All'">
             <strong>Tous</strong>
@@ -26,8 +25,7 @@
         <b-dropdown
           text="Heure"
           variant="outline-danger"
-          class="s-1"
-          id="button-programmation"
+          class="s-1 button-programmation"
         >
           <b-dropdown-item value="All" @click="selectedType = 'All'">
             <strong>Tous</strong>
@@ -47,8 +45,7 @@
         <b-dropdown
           text="Genre"
           variant="outline-danger"
-          class="s-1"
-          id="button-programmation"
+          class="s-1 button-programmation"
         >
           <b-dropdown-item value="All" @click="selectedType = 'All'">
             <strong>Tous</strong>
@@ -67,8 +64,7 @@
         <b-dropdown
           text="Scène"
           variant="outline-danger"
-          class="s-1"
-          id="button-programmation"
+          class="s-1 button-programmation"
         >
           <b-dropdown-item value="All" @click="selectedType = 'All'">
             <strong>Tous</strong>
