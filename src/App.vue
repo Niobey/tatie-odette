@@ -75,6 +75,12 @@ h1 {
   margin: 0 0 0 remCalc(22);
   padding: 36px 0 6px;
   max-width: 70%;
+
+  @media (min-width: 576px) {
+    font-size: remCalc(22);
+    padding: 67px 0 6px;
+    max-width: 85%;
+  }
 }
 
 h2 {

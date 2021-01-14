@@ -180,7 +180,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../styles/mixins';
+@import "../styles/mixins";
 
 .menu {
   background: var(--blue);
@@ -192,7 +192,7 @@ export default {
   overflow: hidden;
   position: fixed;
   width: 100%;
-  z-index: 500;
+  z-index: 1200;
 
   #close {
     background: transparent;
@@ -230,6 +230,11 @@ export default {
     margin: auto auto auto 5em;
     padding: 0;
     text-shadow: 1px 2px 0px white;
+
+    @media (min-width: 768px) {
+      margin: auto;
+      text-align: center;
+    }
   }
 
   .socialMedia {
