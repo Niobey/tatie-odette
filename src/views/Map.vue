@@ -3,15 +3,44 @@
     <h1>Plan du festival</h1>
     <div class="map-container">
       <div class="container-sort">
-        <!-- A compléter dynamiquement avec les data -->
-        <button type="button" class="btn-sort">WC</button>
-        <button type="button" class="btn-sort">Scènes</button>
-        <button type="button" class="btn-sort">Bars</button>
-        <button type="button" class="btn-sort">Restauraurants</button>
+        <!-- POI buttons for markers sort -->
+        <button
+          type="button"
+          class="btn-sort"
+          @click="selectedMarkers = 'all'"
+          :class="{ active: selectedMarkers === 'all' }"
+        >
+          Tous
+        </button>
+
+        <button
+          type="button"
+          v-for="(poiType, index) in poiTypes"
+          :key="index"
+          class="btn-sort"
+          :class="[poiType.type, { active: selectedMarkers === poiType.type }]"
+          @click="selectedMarkers = poiType.type"
+        >
+          {{ poiType.type }}
+        </button>
         <button type="button" class="btn-sort btn-sort-now">
           Concert en ce moment
         </button>
       </div>
+
+      <div class="poiDescription">
+        <h2 v-if="poiInfos">{{ poiInfos.name }} :</h2>
+        <div v-if="poiInfos">
+          <p v-if="poiInfos.description">{{ poiInfos.description }}</p>
+          <p v-if="poiInfos.gender">{{ poiInfos.gender }}</p>
+          <p v-if="poiInfos.number">x{{ poiInfos.number }}</p>
+          <p v-if="poiInfos.company" class="companyPOI">
+            {{ poiInfos.company }}
+          </p>
+        </div>
+      </div>
+
+      <!-- map -->
       <l-map
         :zoom="zoom"
         :center="center"
@@ -21,12 +50,32 @@
         class="map"
       >
         <l-marker
-          v-for="(marker, index) in markers"
+          v-for="(marker, index) in filteredPOI"
           :key="index"
           :lat-lng="setLatLng(marker.lat, marker.lng)"
+          :class-name="marker.name"
+          @click="poiInfos = marker"
         >
           <l-icon :icon-anchor="staticAnchor">
-            <img :src="setIcon(marker.type)" class="marker" />
+            <!-- ************************ -->
+            <!-- :src NE FONCTIONNE PAS : -->
+            <img
+              :src="setIcon(marker.type)"
+              class="marker"
+              :class="marker.type"
+            />
+            <!--  alternative en attendant : -->
+            <div
+              style="height: 50px; width: 50px; background: red; transform: translate(0%, -50%);"
+            ></div>
+            <!-- ************************ -->
+          </l-icon>
+        </l-marker>
+
+        <!-- User geolocation -->
+        <l-marker :lat-lng="userLocation">
+          <l-icon :icon-anchor="staticAnchor" class-name="arrow-marker">
+            <ArrowMarker class="arrow-marker" />
           </l-icon>
         </l-marker>
 
@@ -35,14 +84,14 @@
           :attribution="attribution"
           :compass="compass"
         />
-        <l-geo-json v-if="show" :geojson="geojson" />
 
-        <l-marker :lat-lng="userLocation">
-          <l-icon :icon-anchor="staticAnchor" class-name="arrow-marker">
-            <ArrowMarker class="arrow-marker" />
-          </l-icon>
-        </l-marker>
-        <l-geo-json :geojson="geojson" :options-style="styleGeo"></l-geo-json>
+        <!-- Festival area -->
+        <l-geo-json
+          v-if="geojson"
+          :geojson="geojson"
+          :options-style="styleGeo"
+        ></l-geo-json>
+
         <!-- <l-control position="bottomleft">
         <button>
           I am a useless button!
@@ -57,14 +106,6 @@
 import Plan from "../components/Plan.vue";
 import ArrowMarker from "../assets/markers/marker-arrow.svg";
 import { latLng, Control } from "leaflet";
-import Compass from "../../node_modules/leaflet-compass/src/leaflet-compass";
-
-// https://leafletjs.com/reference-1.7.1.html#control -> Heading (ctrl + D : North)
-// https://stackoverflow.com/questions/28396206/google-maps-js-api-v3-show-orientation-arrow-on-my-location-marker
-// https://mobiforge.com/design-development/html5-mobile-web-device-orientation-events
-
-// https://www.npmjs.com/package/vue2-leaflet-rotatedmarker
-
 import {
   LMap,
   LTileLayer,
@@ -73,15 +114,52 @@ import {
   LGeoJson,
   LControl,
 } from "vue2-leaflet";
+import Compass from "../../node_modules/leaflet-compass/src/leaflet-compass";
+
+// https://leafletjs.com/reference-1.7.1.html#control -> Heading (ctrl + D : North)
+// https://stackoverflow.com/questions/28396206/google-maps-js-api-v3-show-orientation-arrow-on-my-location-marker
+// https://mobiforge.com/design-development/html5-mobile-web-device-orientation-events
+
+// https://www.npmjs.com/package/vue2-leaflet-rotatedmarker
+
 // Geo Json sont des coordonnées pour ajouter un svg sur la map
 
 const poi = [
-  // {
-  //   name: "Moi",
-  //   lat: 47.206557,
-  //   lng: -1.54021,
-  //   type: "user",
-  // },
+  {
+    name: "WC",
+    lat: 47.206007,
+    lng: -1.5405,
+    type: "wc",
+    gender: "female",
+    number: 12,
+  },
+  {
+    name: "La bonne galette",
+    lat: 47.204892,
+    lng: -1.538838,
+    type: "restaurant",
+    description:
+      "La bonne galette est le meilleur point restauration pour manger un bonne galette bretonne comme il se doit !",
+    company: "Le Breton",
+  },
+  {
+    name: "Le trou Normand",
+    lat: 47.205377,
+    lng: -1.538629,
+    type: "bar",
+    description:
+      "Quoi de mieux qu'un bon trou normand entre le plat et le fromage ?",
+    company: "Le Normand",
+  },
+  {
+    name: "Pastis 44",
+    lat: 47.206557,
+    lng: -1.54121,
+    type: "bar",
+    description:
+      "Toujours avoir un petit goût du Sud sur vos papille, voire plusieurs...",
+    company: "Le Toulousain",
+  },
   {
     name: "Scène 1",
     lat: 47.206557,
@@ -115,9 +193,8 @@ export default {
   },
   data() {
     return {
-      loading: false,
-      show: true,
-      enableTooltip: true,
+      poiInfos: null,
+      selectedMarkers: "all",
       zoom: 17,
       center: [47.205584, -1.540117],
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
@@ -132,10 +209,24 @@ export default {
         fillOpacity: 1,
       },
       markers: poi,
-      icons: {
-        stage: require("../assets/markers/stage.png"),
-        user: "..assets/markers/marker-arrow.svg",
-      },
+      poiTypes: [
+        {
+          type: "stage",
+          icon: "../assets/markers/marker-arrow.svg",
+        },
+        {
+          type: "bar",
+          icon: "marker-arrow.svg",
+        },
+        {
+          type: "restaurant",
+          icon: "marker-arrow.svg",
+        },
+        {
+          type: "wc",
+          icon: "marker-arrow.svg",
+        },
+      ],
       geojson: {
         type: "FeatureCollection",
         features: [
@@ -186,17 +277,33 @@ export default {
       return latLng(lat, lng);
     },
     setIcon(type) {
-      for (const [key, value] of Object.entries(this.icons)) {
-        if (key === type) {
-          console.log(value);
-          return value;
+      this.poiTypes.forEach((poiType) => {
+        if (poiType.type === type) {
+          return poiType.icon;
         }
-      }
+      });
     },
   },
   mounted() {
     this.compass = new L.Control.Compass({ autoActive: true, showDigit: true });
     // Ajouter le controleur Compass
+  },
+  computed: {
+    filteredPOI: function() {
+      let self = this;
+      let allMarkers = self.markers;
+      let selectedMarkers = self.selectedMarkers;
+      if (selectedMarkers === "all") {
+        return allMarkers;
+      } else {
+        allMarkers = allMarkers.filter(function(marker) {
+          if (marker.type.indexOf(selectedMarkers) !== -1) {
+            return marker;
+          }
+        });
+      }
+      return allMarkers;
+    },
   },
   // async created() {
   //   this.loading = true;
@@ -224,15 +331,17 @@ export default {
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin: auto;
   min-height: 100%;
   padding: 2em 0;
-  width: 100%;
+  width: clamp(320px, 80vw, 56.25rem);
 
   .map {
     border: 1px solid black;
     box-shadow: -8px 10px 0px var(--pink);
     height: 500px;
-    width: clamp(320px, 80vw, 56.25rem);
+    // width: clamp(320px, 80vw, 56.25rem);
+    width: 100%;
   }
 
   .arrow-marker {
@@ -250,8 +359,8 @@ export default {
   }
 
   .container-sort {
-    margin: 2em 0;
-    width: clamp(320px, 80vw, 56.25rem);
+    margin: 2vh 0 1em;
+    width: 100%;
   }
 
   .btn-sort {
@@ -264,6 +373,27 @@ export default {
 
     &-now {
       background: var(--pink);
+    }
+
+    &.active {
+      background: var(--yellow);
+    }
+  }
+
+  .poiDescription {
+    display: inline;
+    margin-right: auto;
+    min-height: 3rem;
+    padding-bottom: 0.4em;
+
+    & * {
+      display: inline;
+      margin-right: 0.4em;
+    }
+
+    .companyPOI {
+      font-style: italic;
+      font-weight: bold;
     }
   }
 }
