@@ -11,6 +11,7 @@ import Partners from '../views/Partners.vue'
 import PraticalInformations from '../views/PraticalInformations.vue'
 import TicketOffice from '../views/TicketOffice.vue'
 import BackOffice from '../views/BackOffice'
+import ProgrammationAdminister from '../views/ProgrammationAdminister'
 
 
 Vue.use(VueRouter)
@@ -111,6 +112,15 @@ const routes = [
         title: ns + "Back Office"
       }
   },
+
+  {
+    path: '/ProgrammationAdminister',
+    name: 'ProgrammationAdminister',
+    component: ProgrammationAdminister,
+    meta: {
+      title: ns + "Programmation Administer"
+    }
+},
 ]
 
 const router = new VueRouter({
