@@ -82,7 +82,6 @@
         <l-tile-layer
           :url="url"
           :attribution="attribution"
-          :compass="compass"
         />
 
         <!-- Festival area -->
@@ -113,7 +112,6 @@ import {
   LGeoJson,
   LControl,
 } from "vue2-leaflet";
-import Compass from "../../node_modules/leaflet-compass/src/leaflet-compass";
 
 // https://leafletjs.com/reference-1.7.1.html#control -> Heading (ctrl + D : North)
 // https://stackoverflow.com/questions/28396206/google-maps-js-api-v3-show-orientation-arrow-on-my-location-marker
@@ -156,7 +154,7 @@ const poi = [
     lng: -1.54121,
     type: "bar",
     description:
-      "Toujours avoir un petit goût du Sud sur vos papille, voire plusieurs...",
+      "Toujours avoir un petit goût du Sud sur vos papilles, voire plusieurs...",
     company: "Le Toulousain",
   },
   {
@@ -202,7 +200,6 @@ export default {
       userLocation: latLng(47.20558, -1.538199),
       staticAnchor: [22, 37],
       enableHighAccuracy: true,
-      compass: Compass,
       styleGeo: {
         fillColor: "#d0f4de",
         fillOpacity: 1,
@@ -211,19 +208,19 @@ export default {
       poiTypes: [
         {
           type: "stage",
-          icon: "../assets/markers/marker-arrow.svg",
+          icon: "../assets/markers/stage.png",
         },
         {
           type: "bar",
-          icon: "marker-arrow.svg",
+          icon: "../assets/markers/stage.png",
         },
         {
           type: "restaurant",
-          icon: "marker-arrow.svg",
+          icon: "../assets/markers/marker-arrow.svg",
         },
         {
           type: "wc",
-          icon: "marker-arrow.svg",
+          icon: "../assets/markers/marker-arrow.svg",
         },
       ],
       geojson: {
@@ -283,10 +280,6 @@ export default {
       });
     },
   },
-  mounted() {
-    this.compass = new L.Control.Compass({ autoActive: true, showDigit: true });
-    // Ajouter le controleur Compass
-  },
   computed: {
     filteredPOI: function() {
       let self = this;
@@ -304,20 +297,6 @@ export default {
       return allMarkers;
     },
   },
-  // async created() {
-  //   this.loading = true;
-  //   const response = await fetch(`./festival.geojson`
-  //   , {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Accept: "application/json",
-  //     },
-  //   }
-  //   );
-  //   const data = await response.json();
-  //   this.geojson = data;
-  //   this.loading = false;
-  // },
 };
 </script>
 
