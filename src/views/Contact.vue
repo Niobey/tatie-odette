@@ -78,4 +78,3 @@ background: var(--pink);
   margin-top: 60px;
 }
 </style>
-
