@@ -17,14 +17,18 @@
 
     <Navbar />
     <router-view />
+    <Footer />
   </div>
 </template>
 
 <script>
 import Navbar from "./components/Navbar.vue";
+import Footer from "./components/Footer.vue";
+
 export default {
   components: {
     Navbar,
+    Footer,
   },
   methods: {
     showMenu: function() {
@@ -92,17 +96,17 @@ ul {
   list-style: none;
 }
 
-// BUTTON GLOBAL 
+// BUTTON GLOBAL
 
 .big-btn {
-    background: var(--green);
-    border-radius: 50px;
-    border: 1px solid black;
-    box-shadow: -2px 5px 0 var(--blue);
-    cursor: pointer;
-    font-weight: 700;
-    padding: 1em 4em;
-  }
+  background: var(--green);
+  border-radius: 50px;
+  border: 1px solid black;
+  box-shadow: -2px 5px 0 var(--blue);
+  cursor: pointer;
+  font-weight: 700;
+  padding: 1em 4em;
+}
 
 // MENU BUTTON
 

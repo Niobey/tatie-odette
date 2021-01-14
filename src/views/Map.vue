@@ -103,7 +103,6 @@
 </template>
 
 <script>
-import Plan from "../components/Plan.vue";
 import ArrowMarker from "../assets/markers/marker-arrow.svg";
 import { latLng, Control } from "leaflet";
 import {
