@@ -1,16 +1,16 @@
 <template>
-  <div class="about">
+<div class="container-fluid">
+  <div class="partner">
     <h1>Partners</h1>
     <div class="text">
-      <span>
-      <p>Chaque année depuis 3 ans, la société d’évènementiel « Live Events » </p>
-      </span>
-      <span>
-      <p>organise un festival de musique appelé «
-Nation Sounds » dans la région parisienne afin de récolter des fonds pour une association humanitaire.</p>
-      </span>
-      <h2 class="text">
-        Un grand merci à nos partenaires qui soutiennent ce festival !
+     
+      <p>Chaque année depuis 3 ans, la société d’évènementiel <span>« Live Events »</span> 
+
+      organise un festival de musique appelé «
+Nation Sounds » dans la région parisienne afin de récolter des fonds pour une association humanitaire.
+      </p>
+      <h2>
+        Un grand merci à nos partenaires qui soutiennent ce festival :
         </h2>
     </div>
     <div class="presentation">
@@ -18,6 +18,7 @@ Nation Sounds » dans la région parisienne afin de récolter des fonds pour une
         <img class="image" :src="contact.image" />
         </div>
     </div>
+  </div>
   </div>
 </template>
 
@@ -33,6 +34,9 @@ Nation Sounds » dans la région parisienne afin de récolter des fonds pour une
         },
         {
           image: 'https://cdn.1min30.com/wp-content/uploads/2019/05/Apple-logo-1.jpg',
+        },
+        {
+          image: 'https://www.figs-education.com/wp-content/uploads/2020/09/logo-wis-400x400.png',
         },]
       }
     }
@@ -41,11 +45,14 @@ Nation Sounds » dans la région parisienne afin de récolter des fonds pour une
 
 
 <style lang="scss">
+
+.partner{
 .image {
-  margin-right: 100%;
-  margin-top: 75px;
+  text-align: center;
    width:100px;
    height: 100px;
+   margin-top: 12vh;
+   border-radius: 20px;
 }
 
 .presentation {
@@ -53,15 +60,24 @@ Nation Sounds » dans la région parisienne afin de récolter des fonds pour une
   align-items: center;
   justify-content: space-between;
   max-width: 700px;
-  
+
+ flex-direction: column;
   margin-left: auto;
     margin-right: auto;
 }
 
 .text {
-  margin-right: 80px;
-  margin-top: 60px;
-  text-align: center;
+  
+  margin-top: 12vh;
+  text-align: justify;
+  padding: 3vw;
+
+  span{
+    color:var(--orange);
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+}
 }
 </style>
 

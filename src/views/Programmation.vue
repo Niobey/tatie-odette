@@ -79,7 +79,9 @@
 */
 
 <script>
+
 import axios from "axios";
+
 
 let types = [
   "rap",
@@ -117,7 +119,51 @@ const cardsData = [
     stage: stage[0],
     day: day[2],
     hour: hour[4],
+    
   },
+
+
+    {
+    artist: artist[3],
+    type: types[1],
+    img:
+      "https://media.virginradio.fr/article-4260166-head-f8/petit-biscuit.jpg",
+    stage: stage[0],
+    day: day[1],
+    hour: hour[7],
+    
+  },
+    {
+    artist: artist[4],
+    type: types[0],
+    img:
+      "https://media.virginradio.fr/article-4260166-head-f8/petit-biscuit.jpg",
+    stage: stage[1],
+    day: day[2],
+    hour: hour[7],
+    
+  },
+    {
+    artist: artist[6],
+    type: types[0],
+    img:
+      "https://media.virginradio.fr/article-4260166-head-f8/petit-biscuit.jpg",
+    stage: stage[0],
+    day: day[1],
+    hour: hour[7],
+  
+  },
+    {
+    artist: artist[7],
+    type: types[0],
+    img:
+      "https://media.virginradio.fr/article-4260166-head-f8/petit-biscuit.jpg",
+    stage: stage[0],
+    day: day[2],
+    hour: hour[1],
+   
+  },
+
   {
     artist: artist[0],
     type: types[1],
@@ -126,6 +172,7 @@ const cardsData = [
     stage: stage[1],
     day: day[0],
     hour: hour[5],
+   
   },
   {
     artist: artist[1],
@@ -135,6 +182,7 @@ const cardsData = [
     stage: stage[2],
     day: day[1],
     hour: hour[5],
+  
   },
   {
     artist: artist[5],
@@ -144,11 +192,14 @@ const cardsData = [
     stage: stage[0],
     day: day[1],
     hour: hour[6],
+
+  
   },
 ];
 export default {
   data() {
     return {
+     
       cards: cardsData,
       types: types,
       days: day,
@@ -195,7 +246,7 @@ export default {
             card.hour.indexOf(selectedType) !== -1 ||
             card.stage.indexOf(selectedType) !== -1
           ) {
-            return card;
+            return card.orderBy(this.bigArtists, 0);
           }
         });
       }

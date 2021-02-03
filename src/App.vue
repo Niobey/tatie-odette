@@ -63,8 +63,8 @@ body,
   font-size: var(--font-size);
   height: 100%;
   margin: 0;
-  overflow: hidden;
-  padding: 0;
+  //overflow: hidden;
+  padding: 0.1px 0 0 0;
   width: 100%;
 }
 
@@ -163,3 +163,5 @@ ul {
   }
 }
 </style>
+
+

@@ -1,4 +1,5 @@
 <template>
+<div class="container-fluid">
   <div class="GeneralInformations">
     <h1>Informations générales</h1>
 
@@ -26,7 +27,7 @@
 
 </div>
 </div>
-
+</div>
   
 
   
@@ -90,7 +91,9 @@ padding-bottom: 15%;
   }
 
 }
-
+img.card-img-top{
+border-radius: 40px;
+}
 
 } 
 </style>
