@@ -79,10 +79,7 @@
           </l-icon>
         </l-marker>
 
-        <l-tile-layer
-          :url="url"
-          :attribution="attribution"
-        />
+        <l-tile-layer :url="url" :attribution="attribution" />
 
         <!-- Festival area -->
         <l-geo-json
@@ -339,23 +336,6 @@ export default {
   .container-sort {
     margin: 2vh 0 1em;
     width: 100%;
-  }
-
-  .btn-sort {
-    background: var(--green);
-    border: 1px solid black;
-    border-radius: 1em;
-    box-shadow: -2px 5px 0px var(--blue);
-    margin: 0.5em;
-    padding: 0 1em;
-
-    &-now {
-      background: var(--pink);
-    }
-
-    &.active {
-      background: var(--yellow);
-    }
   }
 
   .poiDescription {

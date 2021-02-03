@@ -1,90 +1,67 @@
 <template>
   <div class="programmation">
     <h1>Programmation</h1>
-    <b-row align-h="center " id="brow">
-      <div>
-        <b-dropdown
-          text="Jour"
-          variant="outline-danger"
-          class="s-1 button-programmation"
+    <b-row id="brow">
+      <b-dropdown text="Jour" variant="outline-danger">
+        <b-dropdown-item value="All" @click="selectedType = 'All'">
+          <strong>Tous</strong>
+        </b-dropdown-item>
+        <b-dropdown-item
+          v-for="day in days"
+          :key="day"
+          :value="day"
+          @click="selectedType = day"
         >
-          <b-dropdown-item value="All" @click="selectedType = 'All'">
-            <strong>Tous</strong>
-          </b-dropdown-item>
-          <b-dropdown-item
-            v-for="day in days"
-            :key="day"
-            :value="day"
-            @click="selectedType = day"
-          >
-            {{ day }}
-          </b-dropdown-item>
-        </b-dropdown>
-      </div>
-      <div>
-        <b-dropdown
-          text="Heure"
-          variant="outline-danger"
-          class="s-1 button-programmation"
+          {{ day }}
+        </b-dropdown-item>
+      </b-dropdown>
+      <b-dropdown text="Heure" variant="outline-danger">
+        <b-dropdown-item value="All" @click="selectedType = 'All'">
+          <strong>Tous</strong>
+        </b-dropdown-item>
+        <b-dropdown-item
+          v-for="hour in hours"
+          :key="hour"
+          :value="hour"
+          @click="selectedType = hour"
         >
-          <b-dropdown-item value="All" @click="selectedType = 'All'">
-            <strong>Tous</strong>
-          </b-dropdown-item>
-          <b-dropdown-item
-            v-for="hour in hours"
-            :key="hour"
-            :value="hour"
-            @click="selectedType = hour"
-          >
-            {{ hour }}
-          </b-dropdown-item>
-        </b-dropdown>
-      </div>
+          {{ hour }}
+        </b-dropdown-item>
+      </b-dropdown>
 
-      <div>
-        <b-dropdown
-          text="Genre"
-          variant="outline-danger"
-          class="s-1 button-programmation"
+      <b-dropdown text="Genre" variant="outline-danger">
+        <b-dropdown-item value="All" @click="selectedType = 'All'">
+          <strong>Tous</strong>
+        </b-dropdown-item>
+        <b-dropdown-item
+          v-for="type in types"
+          :key="type"
+          :value="type"
+          @click="selectedType = type"
         >
-          <b-dropdown-item value="All" @click="selectedType = 'All'">
-            <strong>Tous</strong>
-          </b-dropdown-item>
-          <b-dropdown-item
-            v-for="type in types"
-            :key="type"
-            :value="type"
-            @click="selectedType = type"
-          >
-            {{ type }}
-          </b-dropdown-item>
-        </b-dropdown>
-      </div>
-      <div>
-        <b-dropdown
-          text="Scène"
-          variant="outline-danger"
-          class="s-1 button-programmation"
+          {{ type }}
+        </b-dropdown-item>
+      </b-dropdown>
+
+      <b-dropdown text="Scène" variant="outline-danger">
+        <b-dropdown-item value="All" @click="selectedType = 'All'">
+          <strong>Tous</strong>
+        </b-dropdown-item>
+        <b-dropdown-item
+          v-for="stage in stages"
+          :key="stage"
+          :value="stage"
+          @click="selectedType = stage"
         >
-          <b-dropdown-item value="All" @click="selectedType = 'All'">
-            <strong>Tous</strong>
-          </b-dropdown-item>
-          <b-dropdown-item
-            v-for="stage in stages"
-            :key="stage"
-            :value="stage"
-            @click="selectedType = stage"
-          >
-            {{ stage }}
-          </b-dropdown-item>
-        </b-dropdown>
-      </div>
+          {{ stage }}
+        </b-dropdown-item>
+      </b-dropdown>
     </b-row>
 
     <div class="container-fluid d-flex flex-wrap">
       <div
         class="card_prog col-md-6 col-xl-4"
-        v-for="(card, index) in filteredCategory "
+        v-for="(card, index) in filteredCategory"
         :key="index"
       >
         <div class="card_title">
@@ -102,7 +79,7 @@
 */
 
 <script>
-
+import axios from "axios";
 
 let types = [
   "rap",
@@ -180,15 +157,38 @@ export default {
       selectedType: "All",
     };
   },
+  created() {
+    this.fetchData();
+  },
+  methods: {
+    // Récupère les données de l'API
+    fetchData: function() {
+      let self = this;
+
+      axios
+        .get("http://localhost:8000/api/artist")
+        .then(function(response) {
+          // Datas pronvenant de l'API
+          console.log(response.data);
+          // Anciennes Data (qui va jarter)
+          console.log(self.cards);
+          // Nouvelle Data remplace l'ancienne
+          self.cards = response.data;
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    },
+  },
   computed: {
-    filteredCategory: function () {
+    filteredCategory: function() {
       let self = this;
       let cardsArray = self.cards;
       let selectedType = self.selectedType;
       if (selectedType === "All") {
         return cardsArray;
       } else {
-        cardsArray = cardsArray.filter(function (card) {
+        cardsArray = cardsArray.filter(function(card) {
           if (
             card.type.indexOf(selectedType) !== -1 ||
             card.day.indexOf(selectedType) !== -1 ||
@@ -210,37 +210,31 @@ export default {
 
 <style lang="scss">
 #brow {
+  justify-content: center;
   margin-top: 2em;
   margin-right: auto;
   margin-left: auto;
-}
+  display: flex;
+  flex-wrap: wrap;
 
-.btn {
+  .btn {
     display: inline-block;
     font-weight: 400;
-    color: var(--black) !important;
+    color: var(--black);
     text-align: center;
-    vertical-align: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-color: var(--green) !important;
-    border: 1px solid black !important;
-    padding: 0.375rem 0.75rem;
+    background-color: var(--green);
+    border: 1px solid black;
     font-size: 1rem;
-    line-height: 1.5;
-    border-radius: 2em !important;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
+    border-radius: 2em;
 
+    box-shadow: -2px 5px 0px var(--blue);
+    margin: 0.5em;
+    padding: 0 1em;
+  }
 
-
-#button-programmation {
-    background: var(--green);
-    margin: .2em;
-    border-radius: 1em ;
-    border-color: var(--blue);
+  .dropdown-toggle::after {
+    margin-left: 1em;
+  }
 }
 
 .container {

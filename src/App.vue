@@ -61,9 +61,10 @@ body,
 #app {
   font-family: "Raleway", sans-serif;
   font-size: var(--font-size);
-  margin: 0;
-  padding: 0;
   height: 100%;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
   width: 100%;
 }
 
@@ -142,6 +143,23 @@ ul {
 
   .burger0 {
     fill: #fff;
+  }
+}
+
+.btn-sort {
+  background: var(--green);
+  border: 1px solid black;
+  border-radius: 1em;
+  box-shadow: -2px 5px 0px var(--blue);
+  margin: 0.5em;
+  padding: 0 1em;
+
+  &-now {
+    background: var(--pink);
+  }
+
+  &.active {
+    background: var(--yellow);
   }
 }
 </style>
