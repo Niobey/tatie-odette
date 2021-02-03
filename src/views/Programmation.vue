@@ -119,7 +119,7 @@ const cardsData = [
     stage: stage[0],
     day: day[2],
     hour: hour[4],
-    bigArtist: bigArtist[1],
+    
   },
 
 
@@ -131,7 +131,7 @@ const cardsData = [
     stage: stage[0],
     day: day[1],
     hour: hour[7],
-    bigArtist: bigArtist[1],
+    
   },
     {
     artist: artist[4],
@@ -141,7 +141,7 @@ const cardsData = [
     stage: stage[1],
     day: day[2],
     hour: hour[7],
-    bigArtist: bigArtist[0],
+    
   },
     {
     artist: artist[6],
@@ -151,7 +151,7 @@ const cardsData = [
     stage: stage[0],
     day: day[1],
     hour: hour[7],
-    bigArtist: bigArtist[0],
+  
   },
     {
     artist: artist[7],
@@ -161,7 +161,7 @@ const cardsData = [
     stage: stage[0],
     day: day[2],
     hour: hour[1],
-    bigArtist: bigArtist[0],
+   
   },
 
   {
@@ -172,7 +172,7 @@ const cardsData = [
     stage: stage[1],
     day: day[0],
     hour: hour[5],
-    bigArtist: bigArtist[0],
+   
   },
   {
     artist: artist[1],
@@ -182,7 +182,7 @@ const cardsData = [
     stage: stage[2],
     day: day[1],
     hour: hour[5],
-    bigArtist: bigArtist[0],
+  
   },
   {
     artist: artist[5],
@@ -192,14 +192,14 @@ const cardsData = [
     stage: stage[0],
     day: day[1],
     hour: hour[6],
-    bigArtist: bigArtist[1],
+
   
   },
 ];
 export default {
   data() {
     return {
-      bigArtists: bigArtist,
+     
       cards: cardsData,
       types: types,
       days: day,

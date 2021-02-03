@@ -2,7 +2,9 @@ import VueSimpleAccordion from 'vue-simple-accordion';
 
 
 <template>
+
   <div class="PraticalInformations">
+    <div class="container-fluid">
     <h1>Informations pratiques et FAQ</h1>
     
     <h2 class="titlefind">Venir</h2>
@@ -67,6 +69,7 @@ import VueSimpleAccordion from 'vue-simple-accordion';
     </div>
 </div>
 
+  </div>
   </div>
 </template>
 

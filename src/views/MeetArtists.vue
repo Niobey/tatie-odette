@@ -1,4 +1,5 @@
 <template>
+<div class="container-fluid">
   <div class="MeetArtists">
     <h1>Rencontre Artiste</h1>
 
@@ -28,11 +29,11 @@
 
       <div class="MeetArtistsCondition" v-for="MeetArtistsCondition in MeetArtistsConditions" :key="MeetArtistsCondition.condition">
       <p>{{MeetArtistsCondition.condition}}</p>
-      <p>{{MeetArtistsCondition.ps}}</p>
+      <p class="jauge">{{MeetArtistsCondition.ps}}</p>
   </div>
       
   </div>
-
+</div>
 
   
 </template>
@@ -45,8 +46,8 @@
 padding-bottom: 15%;
 
 .MeetArtistsContent{
-  padding: 15vw;
-  text-align: center;
+padding: 10vw;
+    text-align: justify;
   p{
     font-size: 1.25rem;
     font-weight: 700;
@@ -84,8 +85,13 @@ tbody tr:nth-of-type(odd) {
   text-align: center;
   p{
 color: var(--dark);
+
   }
-  
+  .jauge{
+  color: var(--orange);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
 }
 }
 
