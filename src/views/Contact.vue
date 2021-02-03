@@ -177,6 +177,7 @@ h2{
   margin-left: auto;
   margin-right: auto;
  flex-direction: column;
+    text-align: center;
  @media (min-width: 768px) {
       flex-direction: row;
     }
