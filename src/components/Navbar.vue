@@ -24,9 +24,9 @@
       <li @click="hideNav()">
         <router-link to="/programmation">{{ programmation }}</router-link>
       </li>
-      <li @click="hideNav()">
+      <!-- <li @click="hideNav()">
         <router-link to="/ticketoffice">Billetterie</router-link>
-      </li>
+      </li> -->
       <li @click="hideNav()">
         <router-link to="/praticalinformations">{{
           practicalinformations

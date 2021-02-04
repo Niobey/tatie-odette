@@ -217,7 +217,7 @@ export default {
       let self = this;
 
       axios
-        .get("http://localhost:8000/api/artist")
+        .get("http://localhost:8000/api/artists")
         .then(function(response) {
           // Datas pronvenant de l'API
           console.log(response.data);
