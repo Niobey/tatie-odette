@@ -65,7 +65,7 @@
         :key="index"
       >
         <div class="card_title">
-          <h3>{{ card.artist }}</h3>
+          <h3>{{ card.concert }}</h3>
           <span> {{ card.stage }} / {{ card.day }} / {{ card.hour }} </span>
         </div>
         <div class="container_img">
@@ -217,7 +217,7 @@ export default {
       let self = this;
 
       axios
-        .get("http://localhost:8000/api/artists")
+        .get("https://nation-sound.herokuapp.com/api/lineup")
         .then(function(response) {
           // Datas pronvenant de l'API
           console.log(response.data);

@@ -271,7 +271,7 @@ export default {
     },
     setIcon(type) {
       this.poiTypes.forEach((poiType) => {
-        if (poiType.type === type) {
+        if (poiType.type == type) {
           return poiType.icon;
         }
       });
