@@ -21,15 +21,15 @@
           :class="[poiType.type, { active: selectedMarkers === poiType.type }]"
           @click="selectedMarkers = poiType.type"
         >
-          {{ poiType.type }}
+          {{ poiType.name }}
         </button>
-        <button type="button" class="btn-sort btn-sort-now">
+        <!-- <button type="button" class="btn-sort btn-sort-now">
           Concert en ce moment
-        </button>
+        </button> -->
       </div>
 
       <div class="poiDescription">
-        <h2 v-if="poiInfos">{{ poiInfos.name }} :</h2>
+        <h2 v-if="poiInfos">{{ poiInfos.name }} </h2>
         <div v-if="poiInfos">
           <p v-if="poiInfos.description">{{ poiInfos.description }}</p>
           <p v-if="poiInfos.gender">{{ poiInfos.gender }}</p>
@@ -47,20 +47,20 @@
         :enableHighAccuracy="enableHighAccuracy"
         @ready="onReady"
         @locationfound="onLocationFound"
-        class="map"
+        class="map" v-if="display"
       >
         <l-marker
           v-for="(marker, index) in filteredPOI"
           :key="index"
-          :lat-lng="setLatLng(marker.lat, marker.lng)"
+          :lat-lng="setCoordinates(marker.coordinates)"
           :class-name="marker.name"
           @click="poiInfos = marker"
         >
           <l-icon :icon-anchor="staticAnchor">
-            <Stage v-if="marker.type === 'stage'" class="marker"/>
-            <Wc v-if="marker.type === 'wc'" class="marker"/>
-            <Bar v-if="marker.type === 'bar'" class="marker"/>
-            <Catering v-if="marker.type === 'catering'" class="marker"/>
+            <Stage v-if="marker.category === 'stage'" class="marker" />
+            <Wc v-if="marker.category === 'wc'" class="marker" />
+            <Bar v-if="marker.category === 'bar'" class="marker" />
+            <Catering v-if="marker.category === 'catering'" class="marker" />
           </l-icon>
         </l-marker>
 
@@ -91,6 +91,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 import ArrowMarker from "../assets/markers/marker-arrow.svg";
 import Stage from "../assets/markers/stage.svg";
 import Wc from "../assets/markers/wc.svg";
@@ -183,10 +185,11 @@ export default {
     Stage,
     Wc,
     Bar,
-    Catering
+    Catering,
   },
   data() {
     return {
+      display: false,
       poiInfos: null,
       selectedMarkers: "all",
       zoom: 17,
@@ -205,19 +208,19 @@ export default {
       poiTypes: [
         {
           type: "stage",
-          icon: "../assets/markers/stage.png",
+          name: "Scènes",
         },
         {
           type: "bar",
-          icon: "../assets/markers/stage.png",
+          name: "Bars",
         },
         {
           type: "catering",
-          icon: "../assets/markers/marker-arrow.svg",
+          name: "Restauration",
         },
         {
           type: "wc",
-          icon: "../assets/markers/marker-arrow.svg",
+          name: "WC",
         },
       ],
       geojson: {
@@ -258,6 +261,9 @@ export default {
       },
     };
   },
+  created() {
+    this.fetchData();
+  },
   methods: {
     onReady(mapObject) {
       mapObject.locate();
@@ -266,8 +272,28 @@ export default {
       // https://github.com/vue-leaflet/Vue2Leaflet/issues/476
       this.userLocation = latLng(location.latitude, location.longitude);
     },
-    setLatLng(lat, lng) {
-      return latLng(lat, lng);
+    setCoordinates(coordinates) {
+      const latLngString = coordinates.split(",");
+      const lat = parseFloat(latLngString[0]);
+      const lng = parseFloat(latLngString[1]);
+      const coordGPS = latLng(lat, lng);
+      return coordGPS;
+    },
+    // setLatLng(lat, lng) {
+    //   return latLng(lat, lng);
+    // },
+    fetchData: function() {
+      let self = this;
+
+      axios
+        .get("https://nation-sound.herokuapp.com/api/map")
+        .then(function(response) {
+          self.markers = response.data;
+          self.display = true;
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
     },
     setIcon(type) {
       this.poiTypes.forEach((poiType) => {
@@ -286,7 +312,7 @@ export default {
         return allMarkers;
       } else {
         allMarkers = allMarkers.filter(function(marker) {
-          if (marker.type.indexOf(selectedMarkers) !== -1) {
+          if (marker.category.indexOf(selectedMarkers) !== -1) {
             return marker;
           }
         });
