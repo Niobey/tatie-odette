@@ -65,9 +65,9 @@
               :class="marker.type"
             />
             <!--  alternative en attendant : -->
-            <div
+            <!-- <div
               style="height: 50px; width: 50px; background: red; transform: translate(0%, -50%);"
-            ></div>
+            ></div> -->
             <!-- ************************ -->
           </l-icon>
         </l-marker>
@@ -271,7 +271,7 @@ export default {
     },
     setIcon(type) {
       this.poiTypes.forEach((poiType) => {
-        if (poiType.type === type) {
+        if (poiType.type == type) {
           return poiType.icon;
         }
       });
