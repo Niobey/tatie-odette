@@ -381,7 +381,7 @@ a {
 .debug {
   border-radius: 4px;
   margin: 50px auto;
-  width: 500px;
+  //width: 500px;
   background-color: #000;
   padding: 50px;
   background: rgba(0, 0, 0, 0.8);
