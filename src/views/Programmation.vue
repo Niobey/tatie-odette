@@ -7,12 +7,12 @@
           <strong>Tous</strong>
         </b-dropdown-item>
         <b-dropdown-item
-          v-for="day in days"
-          :key="day"
-          :value="day"
-          @click="selectedType = day"
+        v-for="(card, index) in info"
+        :key="index"
+          :value="card.day"
+          @click="selectedType = card.day"
         >
-          {{ day }}
+          {{ card.day }}
         </b-dropdown-item>
       </b-dropdown>
       <b-dropdown text="Heure" variant="outline-danger">
@@ -20,12 +20,12 @@
           <strong>Tous</strong>
         </b-dropdown-item>
         <b-dropdown-item
-          v-for="hour in hours"
-          :key="hour"
-          :value="hour"
-          @click="selectedType = hour"
+        v-for="(card, index) in info"
+        :key="index"
+          :value="card.hour"
+          @click="selectedType = card.hour"
         >
-          {{ hour }}
+          {{ card.hour }} Heures
         </b-dropdown-item>
       </b-dropdown>
 
@@ -34,12 +34,12 @@
           <strong>Tous</strong>
         </b-dropdown-item>
         <b-dropdown-item
-          v-for="type in types"
-          :key="type"
-          :value="type"
-          @click="selectedType = type"
+        v-for="(card, index) in info"
+        :key="index"
+          :value="card.type"
+          @click="selectedType = card.type"
         >
-          {{ type }}
+          {{ card.type }}
         </b-dropdown-item>
       </b-dropdown>
 
@@ -48,12 +48,12 @@
           <strong>Tous</strong>
         </b-dropdown-item>
         <b-dropdown-item
-          v-for="stage in stages"
-          :key="stage"
-          :value="stage"
-          @click="selectedType = stage"
+        v-for="(card, index) in info"
+        :key="index"
+          :value="card.stage"
+          @click="selectedType = card.stage"
         >
-          {{ stage }}
+          {{ card.stage }}
         </b-dropdown-item>
       </b-dropdown>
     </b-row>
@@ -61,12 +61,12 @@
     <div class="container-fluid d-flex flex-wrap">
       <div
         class="card_prog col-md-6 col-xl-4"
-        v-for="(card, index) in filteredCategory"
+        v-for="(card, index) in info"
         :key="index"
       >
         <div class="card_title">
           <h3>{{ card.concert }}</h3>
-          <span> {{ card.stage }} / {{ card.day }} / {{ card.hour }} </span>
+          <span> {{ card.stage }} / {{ card.day }} / {{ card.hour }} Heures</span>
         </div>
         <div class="container_img">
           <img class="card_img" :src="card.img" />
@@ -82,155 +82,43 @@
 
 import axios from "axios";
 
-
-let types = [
-  "rap",
-  "rock",
-  "metal",
-  "pop",
-  "electro",
-  "folk",
-  "jazz",
-  "alternatif",
-];
-let artist = [
-  "Booba",
-  "Vald",
-  "Petit Biscuit",
-  "Marlin Manson",
-  "Céline Dion",
-  "Jean Schultheis",
-  "Psy",
-  "Cardi B",
-  "Scorpion",
-  "Fatal Bazooka",
-  "Tragédie",
-  "Keen v",
-];
-let stage = ["Scène A", "Scène B", "Scène C"];
-let hour = ["18h", "19h", "20h", "21h", "22h", "23h", "00h", "01h00"];
-let day = ["Vendredi", "Samedi", "Dimanche"];
-const cardsData = [
-  {
-    artist: artist[2],
-    type: types[0],
-    img:
-      "https://media.virginradio.fr/article-4260166-head-f8/petit-biscuit.jpg",
-    stage: stage[0],
-    day: day[2],
-    hour: hour[4],
-    
-  },
-
-
-    {
-    artist: artist[3],
-    type: types[1],
-    img:
-      "https://media.virginradio.fr/article-4260166-head-f8/petit-biscuit.jpg",
-    stage: stage[0],
-    day: day[1],
-    hour: hour[7],
-    
-  },
-    {
-    artist: artist[4],
-    type: types[0],
-    img:
-      "https://media.virginradio.fr/article-4260166-head-f8/petit-biscuit.jpg",
-    stage: stage[1],
-    day: day[2],
-    hour: hour[7],
-    
-  },
-    {
-    artist: artist[6],
-    type: types[0],
-    img:
-      "https://media.virginradio.fr/article-4260166-head-f8/petit-biscuit.jpg",
-    stage: stage[0],
-    day: day[1],
-    hour: hour[7],
-  
-  },
-    {
-    artist: artist[7],
-    type: types[0],
-    img:
-      "https://media.virginradio.fr/article-4260166-head-f8/petit-biscuit.jpg",
-    stage: stage[0],
-    day: day[2],
-    hour: hour[1],
-   
-  },
-
-  {
-    artist: artist[0],
-    type: types[1],
-    img:
-      "https://www.parisladefense-arena.com/uploads/2018/10/3764-booba-orig-2.jpg",
-    stage: stage[1],
-    day: day[0],
-    hour: hour[5],
-   
-  },
-  {
-    artist: artist[1],
-    type: types[2],
-    img:
-      "https://cdn.radiofrance.fr/s3/cruiser-production/2019/04/05e9523a-428f-4798-ad07-c4abcc70acfa/801x410_vald_album_2019.jpg",
-    stage: stage[2],
-    day: day[1],
-    hour: hour[5],
-  
-  },
-  {
-    artist: artist[5],
-    type: types[0],
-    img:
-      "https://static1.purepeople.com/articles/6/30/54/86/@/4322687-semi-exclusif-jean-schultheis-vendre-950x0-1.jpg",
-    stage: stage[0],
-    day: day[1],
-    hour: hour[6],
-
-  
-  },
-];
 export default {
   data() {
     return {
-     
-      cards: cardsData,
-      types: types,
-      days: day,
-      hours: hour,
-      stages: stage,
-      selectedType: "All",
+     info: null
     };
   },
-  created() {
-    this.fetchData();
+  mounted () {
+    axios
+      .get('https://nation-sound.herokuapp.com/api/lineup')
+      .then(response => (this.info = response.data))
+      .catch(error => console.log(error))
   },
-  methods: {
-    // Récupère les données de l'API
-    fetchData: function() {
-      let self = this;
 
-      axios
-        .get("https://nation-sound.herokuapp.com/api/lineup")
-        .then(function(response) {
-          // Datas pronvenant de l'API
-          console.log(response.data);
-          // Anciennes Data (qui va jarter)
-          console.log(self.cards);
-          // Nouvelle Data remplace l'ancienne
-          self.cards = response.data;
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
-    },
-  },
+
+  // created() {
+  //   this.fetchData();
+  // },
+  // methods: {
+  //   // Récupère les données de l'API
+  //   fetchData: function() {
+  //     let self = this;
+
+  //     axios
+  //       .get("https://nation-sound.herokuapp.com/api/lineup")
+  //       .then(function(response) {
+  //         // Datas pronvenant de l'API
+  //         console.log(response.data);
+  //         // Anciennes Data (qui va jarter)
+  //         console.log(self.cards);
+  //         // Nouvelle Data remplace l'ancienne
+  //         self.cards = response.data;
+  //       })
+  //       .catch(function(error) {
+  //         console.log(error);
+  //       });
+  //   },
+  // },
   computed: {
     filteredCategory: function() {
       let self = this;
