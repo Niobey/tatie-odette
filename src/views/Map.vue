@@ -57,18 +57,10 @@
           @click="poiInfos = marker"
         >
           <l-icon :icon-anchor="staticAnchor">
-            <!-- ************************ -->
-            <!-- :src NE FONCTIONNE PAS : -->
-            <img
-              :src="setIcon(marker.type)"
-              class="marker"
-              :class="marker.type"
-            />
-            <!--  alternative en attendant : -->
-            <!-- <div
-              style="height: 50px; width: 50px; background: red; transform: translate(0%, -50%);"
-            ></div> -->
-            <!-- ************************ -->
+            <Stage v-if="marker.type === 'stage'" class="marker"/>
+            <Wc v-if="marker.type === 'wc'" class="marker"/>
+            <Bar v-if="marker.type === 'bar'" class="marker"/>
+            <Catering v-if="marker.type === 'catering'" class="marker"/>
           </l-icon>
         </l-marker>
 
@@ -100,6 +92,10 @@
 
 <script>
 import ArrowMarker from "../assets/markers/marker-arrow.svg";
+import Stage from "../assets/markers/stage.svg";
+import Wc from "../assets/markers/wc.svg";
+import Bar from "../assets/markers/bar.svg";
+import Catering from "../assets/markers/catering.svg";
 import { latLng, Control } from "leaflet";
 import {
   LMap,
@@ -131,7 +127,7 @@ const poi = [
     name: "La bonne galette",
     lat: 47.204892,
     lng: -1.538838,
-    type: "restaurant",
+    type: "catering",
     description:
       "La bonne galette est le meilleur point restauration pour manger un bonne galette bretonne comme il se doit !",
     company: "Le Breton",
@@ -184,6 +180,10 @@ export default {
     LIcon,
     ArrowMarker,
     LControl,
+    Stage,
+    Wc,
+    Bar,
+    Catering
   },
   data() {
     return {
@@ -212,7 +212,7 @@ export default {
           icon: "../assets/markers/stage.png",
         },
         {
-          type: "restaurant",
+          type: "catering",
           icon: "../assets/markers/marker-arrow.svg",
         },
         {

@@ -16,6 +16,9 @@
     <router-link class="begin" to="/programmation">
       <button type="button">Voir la programmation</button>
     </router-link>
+    <router-link class="begin" to="https://www.ticketswap.fr/hellfest">
+      <button type="button" class="ticket">Billetterie</button>
+    </router-link>
   </div>
 </template>
 
@@ -156,6 +159,11 @@ export default {
     cursor: pointer;
     font-weight: 700;
     padding: 1em 4em;
+  }
+
+  .ticket {
+    background: var(--blue);
+    box-shadow: -2px 5px 0 white;
   }
 }
 
