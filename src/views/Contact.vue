@@ -142,12 +142,7 @@
 <style lang="scss">
 
 .contact{
-.about{
-width: 100%;
-min-height: 100%;
-//background: var(--pink);
 
-}
 .image {
   // margin-right: 100%;
   margin-top: 13vh;
@@ -207,7 +202,7 @@ h2{
   box-sizing: border-box;
 }
   color: #fff;
-  background: var(--orange);
+  background:#fff;
   
 
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -232,11 +227,11 @@ a {
 
 .vue-form {
   font-size: 16px;
-  width: 500px;
+  //width: 500px;
   padding: 15px 30px;
   //border-radius: 4px;
   margin: 50px auto;
-  width: 500px;
+ // width: 500px;
   background-color: #fff;
   //box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
 }
@@ -386,7 +381,7 @@ a {
 .debug {
   border-radius: 4px;
   margin: 50px auto;
-  width: 500px;
+  //width: 500px;
   background-color: #000;
   padding: 50px;
   background: rgba(0, 0, 0, 0.8);
