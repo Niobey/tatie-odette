@@ -1,18 +1,18 @@
 <template>
   <div class="programmation">
     <h1>Programmation</h1>
-    <b-row id="brow">
+  <b-row id="brow">
       <b-dropdown text="Jour" variant="outline-danger">
         <b-dropdown-item value="All" @click="selectedType = 'All'">
           <strong>Tous</strong>
         </b-dropdown-item>
         <b-dropdown-item
-        v-for="(card, index) in info"
-        :key="index"
-          :value="card.day"
-          @click="selectedType = card.day"
+          v-for="day in days"
+          :key="day"
+          :value="day"
+          @click="selectedType = day"
         >
-          {{ card.day }}
+          {{ day }}
         </b-dropdown-item>
       </b-dropdown>
       <b-dropdown text="Heure" variant="outline-danger">
@@ -20,12 +20,12 @@
           <strong>Tous</strong>
         </b-dropdown-item>
         <b-dropdown-item
-        v-for="(card, index) in info"
-        :key="index"
-          :value="card.hour"
-          @click="selectedType = card.hour"
+          v-for="hour in hours"
+          :key="hour"
+          :value="hour"
+          @click="selectedType = hour"
         >
-          {{ card.hour }} Heures
+          {{ hour }}
         </b-dropdown-item>
       </b-dropdown>
 
@@ -34,12 +34,12 @@
           <strong>Tous</strong>
         </b-dropdown-item>
         <b-dropdown-item
-        v-for="(card, index) in info"
-        :key="index"
-          :value="card.type"
-          @click="selectedType = card.type"
+          v-for="type in types"
+          :key="type"
+          :value="type"
+          @click="selectedType = type"
         >
-          {{ card.type }}
+          {{ type }}
         </b-dropdown-item>
       </b-dropdown>
 
@@ -48,12 +48,12 @@
           <strong>Tous</strong>
         </b-dropdown-item>
         <b-dropdown-item
-        v-for="(card, index) in info"
-        :key="index"
-          :value="card.stage"
-          @click="selectedType = card.stage"
+          v-for="stage in stages"
+          :key="stage"
+          :value="stage"
+          @click="selectedType = stage"
         >
-          {{ card.stage }}
+          {{ stage }}
         </b-dropdown-item>
       </b-dropdown>
     </b-row>
@@ -80,12 +80,34 @@
 
 <script>
 
+let types = [
+  "rap",
+  "rock",
+  "metal",
+  "pop",
+  "electro",
+  "folk",
+  "jazz",
+  "alternatif",
+];
+
+let stage = ["Mainstage", "NationStage", "SoundStage"];
+let hour = ["18h", "19h", "20h", "21h", "22h", "23h", "00h", "01h00"];
+let day = ["Vendredi", "Samedi", "Dimanche"];
+
+
 import axios from "axios";
 
 export default {
   data() {
     return {
-     info: null
+     info: null,
+
+      types: types,
+      days: day,
+      hours: hour,
+      stages: stage,
+      selectedType: "All",
     };
   },
   mounted () {
