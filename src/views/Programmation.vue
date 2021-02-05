@@ -7,8 +7,8 @@
           <strong>Tous</strong>
         </b-dropdown-item>
         <b-dropdown-item
-        v-for="(card, index) in info"
-        :key="index"
+          v-for="(card, index) in info"
+          :key="index"
           :value="card.day"
           @click="selectedType = card.day"
         >
@@ -20,8 +20,8 @@
           <strong>Tous</strong>
         </b-dropdown-item>
         <b-dropdown-item
-        v-for="(card, index) in info"
-        :key="index"
+          v-for="(card, index) in info"
+          :key="index"
           :value="card.hour"
           @click="selectedType = card.hour"
         >
@@ -34,8 +34,8 @@
           <strong>Tous</strong>
         </b-dropdown-item>
         <b-dropdown-item
-        v-for="(card, index) in info"
-        :key="index"
+          v-for="(card, index) in info"
+          :key="index"
           :value="card.type"
           @click="selectedType = card.type"
         >
@@ -48,8 +48,8 @@
           <strong>Tous</strong>
         </b-dropdown-item>
         <b-dropdown-item
-        v-for="(card, index) in info"
-        :key="index"
+          v-for="(card, index) in info"
+          :key="index"
           :value="card.stage"
           @click="selectedType = card.stage"
         >
@@ -66,9 +66,12 @@
       >
         <div class="card_title">
           <h3>{{ card.concert }}</h3>
-          <span> {{ card.stage }} / {{ card.day }} / {{ card.hour }} Heures</span>
+          <span>
+            {{ card.stage }} / {{ card.day }} / {{ card.hour }} Heures</span
+          >
         </div>
         <div class="container_img">
+          <p>{{ card.description }}</p>
           <img class="card_img" :src="card.img" />
         </div>
       </div>
@@ -79,22 +82,20 @@
 */
 
 <script>
-
 import axios from "axios";
 
 export default {
   data() {
     return {
-     info: null
+      info: null,
     };
   },
-  mounted () {
+  mounted() {
     axios
-      .get('https://nation-sound.herokuapp.com/api/lineup')
-      .then(response => (this.info = response.data))
-      .catch(error => console.log(error))
+      .get("https://nation-sound.herokuapp.com/api/lineup")
+      .then((response) => (this.info = response.data))
+      .catch((error) => console.log(error));
   },
-
 
   // created() {
   //   this.fetchData();
@@ -205,15 +206,39 @@ export default {
   }
 }
 .container_img {
+  background: black;
   border: 2px solid var(--blue);
   height: 10em;
   margin-top: 0.5em;
   overflow: hidden;
+  position: relative;
+
+  &:hover {
+    p {
+      opacity: 1;
+    }
+
+    img {
+      opacity: 0.2;
+    }
+  }
+
+  p {
+    opacity: 0;
+    position: absolute;
+    padding: 1em;
+    font-weight: bold;
+    color: white;
+    transition: 0.3s;
+  }
 }
+
 .card_img {
   height: 100%;
   object-fit: cover;
   object-position: top;
   width: 100%;
+  opacity: 1;
+  transition: 0.3s;
 }
 </style>
