@@ -213,7 +213,7 @@ export default {
   overflow: hidden;
   position: relative;
 
-  &:hover {
+  &:hover, &:active, &:focus {
     p {
       opacity: 1;
     }
