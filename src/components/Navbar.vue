@@ -227,7 +227,7 @@ export default {
     font-size: 1.5em;
     justify-content: space-evenly;
     height: 70%;
-    margin: auto auto auto 5em;
+    margin: auto auto auto 12vw;
     padding: 0;
     text-shadow: 1px 2px 0px white;
 

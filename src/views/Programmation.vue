@@ -7,10 +7,12 @@
           <strong>Tous</strong>
         </b-dropdown-item>
         <b-dropdown-item
+
           v-for="day in days"
           :key="day"
           :value="day"
           @click="selectedType = day"
+
         >
           {{ day }}
         </b-dropdown-item>
@@ -20,10 +22,12 @@
           <strong>Tous</strong>
         </b-dropdown-item>
         <b-dropdown-item
+
           v-for="hour in hours"
           :key="hour"
           :value="hour"
           @click="selectedType = hour"
+
         >
           {{ hour }}
         </b-dropdown-item>
@@ -34,10 +38,12 @@
           <strong>Tous</strong>
         </b-dropdown-item>
         <b-dropdown-item
+
           v-for="type in types"
           :key="type"
           :value="type"
           @click="selectedType = type"
+
         >
           {{ type }}
         </b-dropdown-item>
@@ -48,11 +54,12 @@
           <strong>Tous</strong>
         </b-dropdown-item>
         <b-dropdown-item
+
           v-for="stage in stages"
           :key="stage"
           :value="stage"
-          @click="selectedType = stage"
-        >
+          @click="selectedType = stage">
+
           {{ stage }}
         </b-dropdown-item>
       </b-dropdown>
@@ -66,9 +73,12 @@
       >
         <div class="card_title">
           <h3>{{ card.concert }}</h3>
-          <span> {{ card.stage }} / {{ card.day }} / {{ card.hour }} Heures</span>
+          <span>
+            {{ card.stage }} / {{ card.day }} / {{ card.hour }} Heures</span
+          >
         </div>
         <div class="container_img">
+          <p>{{ card.description }}</p>
           <img class="card_img" :src="card.img" />
         </div>
       </div>
@@ -79,6 +89,7 @@
 */
 
 <script>
+
 
 let types = [
   "rap",
@@ -96,11 +107,13 @@ let hour = ["18h", "19h", "20h", "21h", "22h", "23h", "00h", "01h00"];
 let day = ["Vendredi", "Samedi", "Dimanche"];
 
 
+
 import axios from "axios";
 
 export default {
   data() {
     return {
+
      info: null,
 
       types: types,
@@ -108,15 +121,17 @@ export default {
       hours: hour,
       stages: stage,
       selectedType: "All",
+
+      info: null,
+
     };
   },
-  mounted () {
+  mounted() {
     axios
-      .get('https://nation-sound.herokuapp.com/api/lineup')
-      .then(response => (this.info = response.data))
-      .catch(error => console.log(error))
+      .get("https://nation-sound.herokuapp.com/api/lineup")
+      .then((response) => (this.info = response.data))
+      .catch((error) => console.log(error));
   },
-
 
   // created() {
   //   this.fetchData();
@@ -227,15 +242,39 @@ export default {
   }
 }
 .container_img {
+  background: black;
   border: 2px solid var(--blue);
   height: 10em;
   margin-top: 0.5em;
   overflow: hidden;
+  position: relative;
+
+  &:hover, &:active, &:focus {
+    p {
+      opacity: 1;
+    }
+
+    img {
+      opacity: 0.2;
+    }
+  }
+
+  p {
+    opacity: 0;
+    position: absolute;
+    padding: 1em;
+    font-weight: bold;
+    color: white;
+    transition: 0.3s;
+  }
 }
+
 .card_img {
   height: 100%;
   object-fit: cover;
   object-position: top;
   width: 100%;
+  opacity: 1;
+  transition: 0.3s;
 }
 </style>

@@ -16,9 +16,9 @@
     <router-link class="begin" to="/programmation">
       <button type="button">Voir la programmation</button>
     </router-link>
-    <router-link class="begin" to="https://www.ticketswap.fr/hellfest">
+    <a class="begin begin-2" href="https://www.ticketswap.fr/hellfest">
       <button type="button" class="ticket">Billetterie</button>
-    </router-link>
+    </a>
   </div>
 </template>
 
@@ -161,6 +161,10 @@ export default {
     padding: 1em 4em;
   }
 
+  &-2 {
+    transform: translate(0%, 4em) !important;
+  }
+
   .ticket {
     background: var(--blue);
     box-shadow: -2px 5px 0 white;
@@ -168,6 +172,7 @@ export default {
 }
 
 #home-logo {
+  transform: translate(0%, 3em);
   width: 20rem;
   z-index: 1;
 }
