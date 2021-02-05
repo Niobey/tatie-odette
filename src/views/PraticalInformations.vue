@@ -177,23 +177,23 @@ export default {
       questions:[
                 {
                     title: 'Comment devenir Bénévole ?',
-                    content: 'Lorem Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terryrichardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.'
+                    content: 'Le festival m’intéresse, je souhaite y postuler. Il n’y a aucun poste à pourvoir pour le moment (stages compris). Les inscriptions bénévoles sont actuellement fermées. Vous souhaitez proposer votre offre de restauration pour le festival ? Toute la restauration du festival est assurée par les équipes bénévoles. Nous ne recherchons pas de prestataires ou de foodtrucks.'
                 },
                 {
                     title: 'Comment me faire rembourser ?',
-                    content: 'Lorem2 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terryrichardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.'
+                    content: 'Si vous avez acheté plusieurs billets, il vous faut faire une demande par billet. Les frais de location (montant s’ajoutant au coût des billets) restent au bénéfice du prestataire de billetterie, comme lors de l’achat du billet. Par exemple, sur un billet journalier à 41 € (42,05 € si on ajoute les frais de location), le remboursement sera de 41 €.'
                 },    
                 {
-                    title: 'Où sont les Parking ?',
-                    content: 'Lorem3 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terryrichardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.'
+                    title: 'Stand Prévention',
+                    content: 'Pour limiter et sensibiliser sur les comportements liés à l’excès d’alcool, à la consommation de drogues ou les risques auditifs, un stand de prévention est accessible à tous. Des bénévoles dispensent informations et conseils auprès du public. Des bouchons d’oreille, casques, préservatifs, éthylotests et autres sont à disposition durant le festival.'
                 },      
                 {
                     title: 'Que faire en cas de vol ou de perte ?',
-                    content: 'Lorem4 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terryrichardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.'
+                    content: 'Les objets de valeur ? Nous vous conseillons vivement de laisser vos objets de valeur (bijoux, portefeuilles, appareils photos ect.) à votre domicile. Dans la foule, vous risquez de les perdre. Ne prenez avec vous que le strict nécessaire. J’ai perdu un objet durant le festival, à qui puis-je m’adresser pour le récupérer ? Après la fin de chaque soirée, une équipe de bénévoles ratisse le terrain afin de récupérer tous les objets perdus. Ils sont rassemblés au point infos. Après le festival, rendez-vous à la Mairie de Nort-sur-Erdre pour récupérer les objets trouvés.'
                 },
                   {
                     title: 'Comment accéder ou festival ?',
-                    content: 'Lorem5 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terryrichardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.'
+                    content: 'Le festival est situé Parc du Port-Mulon à Nort-sur-Erdre (44 390) en Loire-Atlantique à environ 25 km au nord de Nantes.'
                 },
                 
             ]
