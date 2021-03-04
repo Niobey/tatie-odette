@@ -13,6 +13,7 @@ import Payment from '../views/Payment.vue'
 import Pictogram from '../views/Pictogram'
 import SummaryOrder from '../views/SummaryOrder'
 import WriteWord from '../views/WriteWord'
+import Home from '../views/Home'
 
 Vue.use(VueRouter)
 

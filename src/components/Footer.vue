@@ -1,8 +1,6 @@
 <template>
   <footer>
-    <router-link to="/LegalNotice">
-      Mentions légales
-    </router-link>
+
   </footer>
 </template>
 
