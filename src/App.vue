@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-  
-  <Navbar />
+    <Navbar />
     <router-view />
     <Footer />
   </div>
@@ -27,61 +26,69 @@ export default {
 <style lang="scss">
 @import "styles/mixins";
 
-@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@100;300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap");
+// font-family: 'Heebo', sans-serif;
 
 :root {
-  --yellow: #fcf5be;
-  --blue: #a9def9;
-  --green: #d0f4de;
-  --orange: #ff8e4e;
-  --pink: #e4c1f9;
-  --grey: #989898;
-  --dark: #2f2f2f;
+  --gold: #debf7c;
+  --brown: #451e10;
+  --grey: #d4cfcd;
+  --dark: #202020;
 
-  --font-size: 14px;
+  --font-size: 100%;
 }
 
 /* GLOBAL */
 html,
 body,
 #app {
-  font-family: "Raleway", sans-serif;
+  background: var(--grey);
   font-size: var(--font-size);
   height: 100%;
   margin: 0;
-  //overflow: hidden;
-  padding: 0.1px 0 0 0;
+  padding: 0;
   width: 100%;
+  font-family: "Playfair Display", serif;
 }
 
-h1 {
-  border-bottom: 3px solid var(--orange);
-  font-size: remCalc(18);
-  font-weight: 900;
-  line-height: remCalc(28);
-  margin: 0 0 0 remCalc(22);
-  padding: 36px 0 6px;
-  max-width: 70%;
-
-  @media (min-width: 576px) {
-    font-size: remCalc(22);
-    padding: 67px 0 6px;
-    max-width: 85%;
-  }
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-h2 {
-  font-size: remCalc(16);
-  font-weight: 900;
+.card {
+  background: var(--gold);
+  border: none;
+  border-radius: 16px;
+  color: var(--brown);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 10em;
+  min-width: 16em;
+  box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+}
+
+.btn {
+  background: var(--gold);
+  border: none;
+  border-radius: 16px;
+  color: var(--brown);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 16em;
+  box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
 }
 
 a {
+  color: initial;
   text-decoration: none;
-  color: var(--dark);
 
   &:hover {
     text-decoration: none;
-    color: var(--orange);
+    // color: var(--orange);
   }
 }
 
@@ -149,5 +156,3 @@ ul {
   }
 }
 </style>
-
-
