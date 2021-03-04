@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import ChooseModele from '../views/ChooseModele.vue'
+import ChooseModel from '../views/ChooseModel.vue'
 import ChoosePackaging from '../views/ChoosePackaging.vue'
 import Emblem from '../views/Emblem.vue'
 import EndOrder from "../views/EndOrder.vue"
 import Eticket from '../views/Eticket.vue'
 import Format from '../views/Format.vue'
 import Marvel from '../views/Marvel.vue'
-import Option from '../views/Option.vue'
+import ChoosePrint from '../views/ChoosePrint.vue'
 import Packaging from '../views/Packaging.vue'
 import Payment from '../views/Payment.vue'
 import Pictogram from '../views/Pictogram'
@@ -29,11 +29,11 @@ const routes = [
     }
   },
   {
-    path: '/ChooseModele',
-    name: 'ChooseModele',
-    component: ChooseModele,
+    path: '/ChooseModel',
+    name: 'ChooseModel',
+    component: ChooseModel,
     meta: {
-      title: ns + "ChooseModele"
+      title: ns + "ChooseModel"
     }
   },
   {
@@ -88,9 +88,9 @@ const routes = [
   },
 
   {
-    path: '/Option',
-    name: 'Option',
-    component: Option,
+    path: '/ChoosePrint',
+    name: 'ChoosePrint',
+    component: ChoosePrint,
     meta: {
       title: ns + "Option"
     }
