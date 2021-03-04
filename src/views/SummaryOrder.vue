@@ -109,10 +109,10 @@ $text-color: #EEEEEE;
 }
 
 .container {
-  height: 0vh;
+  height:30vh;
   width: 100%;
   
-  display: flex;
+  display: block;
   align-items: center;
   justify-content: center;
   
@@ -137,9 +137,9 @@ div.card_prog.col-md-6 {
 }
 
 button.btn.patience{
-  width: 80%;
-  margin: 2%;
-   margin-left: 5vw;
+  width: 100%;
+  margin: 2% 0 2% 0;
+   
 }
 
 
