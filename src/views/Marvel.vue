@@ -23,8 +23,30 @@
 
 <style lang="scss">
 #Marvel{
+
+h1{
+  text-align: center;
+  color: #451E10 ;
+  margin-top: 6vh;
+  margin-bottom: 8vh;
+  font-size: 1.75rem;
+
+}
+
+h3{
+  font-size: 1.25rem;
+  font-style: italic;
+}
+
+.card_prog{
+  text-align: center;
+  margin-bottom: 10vh;
+  background-color: #fff;
+}
+
   img.card_img{
       width: 200px;
+      height: 200px;
     }
     
   
@@ -42,10 +64,11 @@ let nameMarvel = [
   "Captain America",
   "Iron Man",
   "Thor",
-  "Spider-man",
+  "Spider Man",
   "Wolverine",
   "Thanos",
   "Black Panther",
+  "Ant-Man",
 
 ];
 
@@ -58,6 +81,7 @@ let url = [
   "https://www.albumcomics.com/131445-thickbox_default/marvel-figurine-16-wolverine-30-cm.jpg",
   "https://joueclub-joueclub-fr-storage.omn.proximis.com/Imagestorage/imagesSynchro/0/0/c5d9cc318de9e072f57348d64883e4ae8951f5eb_124333.jpeg",
   "https://www.cdiscount.com/pdt2/1/4/1/1/700x700/has5010993669141/rw/marvel-avengers-figurine-black-panther-titan-her.jpg",
+  "https://joueclub-joueclub-fr-storage.omn.proximis.com/Imagestorage/imagesSynchro/0/0/af2509f5138e8500ecc04ca4243acd57853c334f_99202.jpeg",
 ];
 
 
@@ -98,6 +122,10 @@ export default {
                 {
                     name: nameMarvel[7],
                     urlImage: url[7]
+                },
+                {
+                    name: nameMarvel[8],
+                    urlImage: url[8]
                 },
 
             ],
