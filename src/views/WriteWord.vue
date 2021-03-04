@@ -1,7 +1,7 @@
 <template>
 
 
-<div id="app">
+<div id="writeWord">
   <h1>Votre message</h1>
     <input
       :value="input"
@@ -18,7 +18,7 @@ import SimpleKeyboard from "./SimpleKeyboard";
 
 
 export default {
-  name: "App",
+  name: "writeWord",
   components: {
     SimpleKeyboard
   },
@@ -40,7 +40,7 @@ export default {
 </script>
 
 <style lang="scss">
-#app {
+#writeWord {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

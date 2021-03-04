@@ -14,7 +14,7 @@ export default {
   components: {
     Navbar,
     Footer,
-  }
+  },
 };
 </script>
 
@@ -76,17 +76,17 @@ body,
 }
 
 .btn {
+  align-items: center;
   background: var(--gold);
   border: none;
   border-radius: 100px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   color: var(--brown);
   display: flex;
-  align-items: center;
   justify-content: center;
-  min-width: 16rem;
-  padding: 0.6em 3em 0.7em;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   font-size: 1.375em;
+  min-width: 16em;
+  padding: 0.6em 3em 0.7em;
 }
 
 a {
@@ -95,71 +95,38 @@ a {
 
   &:hover {
     text-decoration: none;
-    // color: var(--orange);
   }
 }
 
-ul {
-  list-style: none;
-}
+// MODELS LIBRARIES
 
-// BUTTON GLOBAL
+.models-library {
+  margin: auto;
+  max-width: 80em;
 
-.big-btn {
-  background: var(--green);
-  border-radius: 50px;
-  border: 1px solid black;
-  box-shadow: -2px 5px 0 var(--blue);
-  cursor: pointer;
-  font-weight: 700;
-  padding: 1em 4em;
-}
-
-// MENU BUTTON
-
-.btn-menu {
-  align-items: center;
-  background: var(--dark);
-  border: none;
-  box-shadow: 3px 4px 0px var(--green);
-  cursor: pointer;
-  display: flex;
-  height: 50px;
-  justify-content: center;
-  position: fixed;
-  right: remCalc(22);
-  top: remCalc(20);
-  width: 50px;
-  z-index: 500;
-
-  @media (min-width: 576px) {
-    top: remCalc(50);
-    right: remCalc(50);
+  h1 {
+    text-align: center;
+    font-size: 1.75rem;
+    margin-bottom: 4vh;
   }
 
-  svg {
-    width: 20px;
-  }
-
-  .burger0 {
-    fill: #fff;
+  h3 {
+    font-size: 1.25rem;
+    font-style: italic;
   }
 }
 
-.btn-sort {
-  background: var(--green);
-  border: 1px solid black;
-  border-radius: 1em;
-  box-shadow: -2px 5px 0px var(--blue);
-  margin: 0.5em;
-  padding: 0 1em;
+.card_model {
+  text-align: center;
+  margin: 1em;
+}
 
-  &-now {
-    background: var(--pink);
-  }
-
-  &.active {
-    background: var(--yellow);
-  }
+.card_img {
+  width: 200px;
+  height: 200px;
+  border: 3px solid var(--gold);
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 </style>

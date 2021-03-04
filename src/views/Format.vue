@@ -1,40 +1,61 @@
 <template>
   <div class="format wrapper">
-    <router-link to="/ChoosePrint">
-      <button class="card">
-        Grand Format
+    <div v-for="(format, index) in formats" :key="index">
+      <button
+        class="card"
+        @click="chooseFormat(format.name, format.duration, format.price)"
+      >
+        {{ format.name }}
         <div class="infos">
-          <p>20 min</p>
-          <p>7€</p>
+          <p>{{ format.duration }} min</p>
+          <p>{{ format.price }} €</p>
         </div>
       </button>
-    </router-link>
-    <router-link to="/ChoosePrint">
-      <button class="card">
-        Petit Format
-        <div class="infos">
-          <p>10 min</p>
-          <p>4€</p>
-        </div>
-      </button>
-    </router-link>
+    </div>
   </div>
 </template>
 
-<style lang="scss">
-.format {
-  .infos {
-    position: absolute;
-    bottom: 0;
-    display: flex;
-    width: 90%;
-    justify-content: space-between;
+<script>
+export default {
+  data() {
+    return {
+      formats: [
+        {
+          name: "Grand format",
+          duration: 20,
+          price: 7,
+        },
+        {
+          name: "Petit Format",
+          duration: 10,
+          price: 4,
+        },
+      ],
+    };
+  },
+  methods: {
+    chooseFormat(name, duration, price) {
+      localStorage.setItem("format", name);
+      localStorage.setItem("duration", duration);
+      localStorage.setItem("price", price);
+      return this.$router.push("/ChoosePrint");
+    },
+  },
+};
+</script>
 
-    p {
-      margin: 0 0 0.5em;
-      font-size: 0.6em;
-      opacity: 0.8;
-    }
+<style lang="scss">
+.infos {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+
+  p {
+    margin: 0 0 0.5em;
+    font-size: 0.6em;
+    opacity: 0.8;
   }
 }
 </style>

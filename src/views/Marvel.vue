@@ -1,13 +1,13 @@
 <template>
-  <div id="Marvel">
-    <h1>Modèle du moment</h1>
+  <div id="Marvel" class="models-library">
+    <h1>Modèles du moment</h1>
 
-
-    <div class="container-fluid d-flex flex-wrap">
+    <div class="container-fluid d-flex flex-wrap justify-content-center">
       <div
-        class="card_prog col-md-6 col-xl-4"
+        class="card_model"
         v-for="(marvel, index) in Marvels"
         :key="index"
+        @click="choosePrint(marvel.name, marvel.urlImage)"
       >
         <div class="card_title">
           <h3>{{ marvel.name }}</h3>
@@ -16,51 +16,39 @@
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
-
 <style lang="scss">
-#Marvel{
+// #Marvel {
+//   h1 {
+//     text-align: center;
+//     color: #451e10;
+//     margin-top: 6vh;
+//     margin-bottom: 8vh;
+//     font-size: 1.75rem;
+//   }
 
-h1{
-  text-align: center;
-  color: #451E10 ;
-  margin-top: 6vh;
-  margin-bottom: 8vh;
-  font-size: 1.75rem;
+//   h3 {
+//     font-size: 1.25rem;
+//     font-style: italic;
+//   }
 
-}
+//   .card_prog {
+//     text-align: center;
+//     margin-bottom: 10vh;
+//   }
 
-h3{
-  font-size: 1.25rem;
-  font-style: italic;
-}
-
-.card_prog{
-  text-align: center;
-  margin-bottom: 10vh;
-  
-}
-
-  img.card_img{
-      width: 200px;
-      height: 200px;
-      border: 1px solid #451E10 ;
-      border-radius: 20px;
-    }
-    
-  
-
-
-}
-
+//   img.card_img {
+//     width: 200px;
+//     height: 200px;
+//     border: 1px solid #451e10;
+//     border-radius: 20px;
+//   }
+// }
 </style>
 
 <script>
-
-
 let nameMarvel = [
   "Hulk",
   "Captain America",
@@ -71,7 +59,6 @@ let nameMarvel = [
   "Thanos",
   "Black Panther",
   "Ant-Man",
-
 ];
 
 let url = [
@@ -86,53 +73,55 @@ let url = [
   "https://joueclub-joueclub-fr-storage.omn.proximis.com/Imagestorage/imagesSynchro/0/0/af2509f5138e8500ecc04ca4243acd57853c334f_99202.jpeg",
 ];
 
-
-
 export default {
-      data(){
+  data() {
     return {
-
-     Marvels:[
-                {
-                    name: nameMarvel[0],
-                    urlImage:url[0]
-                },
-                {
-                    name: nameMarvel[1],
-                    urlImage: url[1]
-                },
-                {
-                    name: nameMarvel[2],
-                    urlImage: url[2]
-                },
-                {
-                    name: nameMarvel[3],
-                    urlImage: url[3]
-                },
-                {
-                    name: nameMarvel[4],
-                    urlImage: url[4]
-                },
-                {
-                    name: nameMarvel[5],
-                    urlImage: url[5]
-                },
-                {
-                    name: nameMarvel[6],
-                    urlImage: url[6]
-                },
-                {
-                    name: nameMarvel[7],
-                    urlImage: url[7]
-                },
-                {
-                    name: nameMarvel[8],
-                    urlImage: url[8]
-                },
-
-            ],
-    }
-}
-}
+      Marvels: [
+        {
+          name: nameMarvel[0],
+          urlImage: url[0],
+        },
+        {
+          name: nameMarvel[1],
+          urlImage: url[1],
+        },
+        {
+          name: nameMarvel[2],
+          urlImage: url[2],
+        },
+        {
+          name: nameMarvel[3],
+          urlImage: url[3],
+        },
+        {
+          name: nameMarvel[4],
+          urlImage: url[4],
+        },
+        {
+          name: nameMarvel[5],
+          urlImage: url[5],
+        },
+        {
+          name: nameMarvel[6],
+          urlImage: url[6],
+        },
+        {
+          name: nameMarvel[7],
+          urlImage: url[7],
+        },
+        // {
+        //   name: nameMarvel[8],
+        //   urlImage: url[8],
+        // },
+      ],
+    };
+  },
+  methods: {
+    choosePrint(choice, choiceUrl) {
+      localStorage.setItem("willPrint", choice);
+      localStorage.setItem("willPrintUrl", choiceUrl);
+      return this.$router.push("/ChoosePackaging");
+    },
+  },
+};
 </script>
-
