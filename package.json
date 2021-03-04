@@ -15,10 +15,12 @@
     "leaflet": "^1.7.1",
     "leaflet-rotatedmarker": "^0.2.0",
     "simple-keyboard": "^2.32.119",
+    "susy": "^3.0.6",
     "vue": "^2.6.12",
     "vue-axios": "^3.2.4",
     "vue-router": "^3.2.0",
     "vue-simple-accordion": "^0.1.0",
+    "vue2-flip-countdown": "^0.11.1",
     "vue2-leaflet": "^2.6.0"
   },
   "devDependencies": {
@@ -49,5 +51,4 @@
     "last 2 versions",
     "not dead"
   ]
-  
 }
