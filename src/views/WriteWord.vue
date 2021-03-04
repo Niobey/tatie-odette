@@ -1,6 +1,6 @@
 <template>
-  <div class="Home">
-    <h1>Home</h1>
+  <div class="writeWord">
+    <h1>Votre texte</h1>
   </div>
 </template>
 

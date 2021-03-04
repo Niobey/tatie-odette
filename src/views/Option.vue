@@ -1,6 +1,6 @@
 <template>
-  <div class="Home">
-    <h1>Home</h1>
+  <div class="Option">
+    <h1>Marvel</h1>
   </div>
 </template>
 

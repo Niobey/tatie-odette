@@ -1,21 +1,7 @@
 <template>
   <div id="app">
-    <button class="btn-menu" @click="showMenu()">
-      <svg
-        version="1.1"
-        xmlns="http://www.w3.org/2000/svg"
-        x="0"
-        y="0"
-        viewBox="0 0 20 20"
-        xml:space="preserve"
-      >
-        <path id="XMLID_6_" class="burger0" d="M0 8.5h20v3H0z" />
-        <path id="XMLID_7_" class="burger0" d="M0 0h20v3H0z" />
-        <path id="XMLID_8_" class="burger0" d="M0 17h20v3H0z" />
-      </svg>
-    </button>
-
-    <Navbar />
+  
+  <Navbar />
     <router-view />
     <Footer />
   </div>

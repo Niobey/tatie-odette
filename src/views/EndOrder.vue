@@ -1,6 +1,6 @@
 <template>
-  <div class="Home">
-    <h1>Home</h1>
+  <div class="EndOrder">
+    <h1>Choix du modèle</h1>
   </div>
 </template>
 

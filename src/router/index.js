@@ -1,22 +1,22 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Contact from '../views/Contact.vue'
-import GeneralInformations from '../views/GeneralInformations.vue'
-import Home from '../views/Home.vue'
-import Programmation from "../views/Programmation.vue"
-import LegalNotice from '../views/LegalNotice.vue'
-import Map from '../views/Map.vue'
-import MeetArtists from '../views/MeetArtists.vue'
-import Partners from '../views/Partners.vue'
-import PraticalInformations from '../views/PraticalInformations.vue'
-import TicketOffice from '../views/TicketOffice.vue'
-import BackOffice from '../views/BackOffice'
-import ProgrammationAdminister from '../views/ProgrammationAdminister'
-
+import ChooseModele from '../views/ChooseModele.vue'
+import ChoosePackaging from '../views/ChoosePackaging.vue'
+import Emblem from '../views/Emblem.vue'
+import EndOrder from "../views/EndOrder.vue"
+import Eticket from '../views/Eticket.vue'
+import Format from '../views/Format.vue'
+import Marvel from '../views/Marvel.vue'
+import Option from '../views/Option.vue'
+import Packaging from '../views/Packaging.vue'
+import Payment from '../views/Payment.vue'
+import Pictogram from '../views/Pictogram'
+import SummaryOrder from '../views/SummaryOrder'
+import WriteWord from '../views/WriteWord'
 
 Vue.use(VueRouter)
 
-const ns = "Nation Sounds - ";
+const ns = "Tatie Odette - ";
 
 const routes = [
   {
@@ -28,98 +28,116 @@ const routes = [
     }
   },
   {
-    path: '/Contact',
-    name: 'Contact',
-    component: Contact,
+    path: '/ChooseModele',
+    name: 'ChooseModele',
+    component: ChooseModele,
     meta: {
-      title: ns + "Contact"
+      title: ns + "ChooseModele"
     }
   },
   {
-    path: '/GeneralInformations',
-    name: 'GeneralInformations',
-    component: GeneralInformations,
+    path: '/ChoosePackaging',
+    name: 'ChoosePackaging',
+    component: ChoosePackaging,
     meta: {
       title: ns + "Informations générales"
     }
   },
   {
-    path: '/LegalNotice',
-    name: 'LegalNotice',
-    component: LegalNotice,
+    path: '/Emblem',
+    name: 'Emblem',
+    component: Emblem,
     meta: {
-      title: ns + "Mentions légales"
+      title: ns + "Emblem"
     }
   },
   {
-    path: '/Map',
-    name: 'Map',
-    component: Map,
+    path: '/EndOrder',
+    name: 'EndOrder',
+    component: EndOrder,
     meta: {
-      title: ns + "Plan"
+      title: ns + "EndOrder"
     }
   },
   {
-    path: '/MeetArtists',
-    name: 'MeetArtists',
-    component: MeetArtists,
+    path: '/Eticket',
+    name: 'Eticket',
+    component: Eticket,
     meta: {
-      title: ns + "Rencontrer les artistes"
-    }
-  },
-  
-  {
-    path: '/Partners',
-    name: 'Partners',
-    component: Partners,
-    meta: {
-      title: ns + "Partenaires"
+      title: ns + "Eticket"
     }
   },
   
   {
-    path: '/PraticalInformations',
-    name: 'PraticalInformations',
-    component: PraticalInformations,
+    path: '/Format',
+    name: 'Format',
+    component: Format,
     meta: {
-      title: ns + "Informations Pratiques"
+      title: ns + "Format"
+    }
+  },
+  
+  {
+    path: '/Marvel',
+    name: 'Marvel',
+    component: Marvel,
+    meta: {
+      title: ns + "Marvel"
     }
   },
 
   {
-    path: '/Programmation',
-    name: 'Programmation',
-    component: Programmation,
+    path: '/Option',
+    name: 'Option',
+    component: Option,
     meta: {
-      title: ns + "Programmation"
+      title: ns + "Option"
     }
   },
 
   {
-    path: '/TicketOffice',
-    name: 'TicketOffice',
-    component: TicketOffice,
+    path: '/Packaging',
+    name: 'Packaging',
+    component: Packaging,
     meta: {
-      title: ns + "Billetterie"
+      title: ns + "Packaging"
     }
   },
 
     {
-      path: '/BackOffice',
-      name: 'BackOffice',
-      component: BackOffice,
+      path: '/Payment',
+      name: 'Payment',
+      component: Payment,
       meta: {
-        title: ns + "Back Office"
+        title: ns + "Payment"
       }
   },
 
   {
-    path: '/ProgrammationAdminister',
-    name: 'ProgrammationAdminister',
-    component: ProgrammationAdminister,
+    path: '/Pictogram',
+    name: 'Pictogram',
+    component: Pictogram,
     meta: {
-      title: ns + "Programmation Administer"
+      title: ns + "Pictogram"
     }
+},
+
+{
+  path: '/SummaryOrder',
+  name: 'SummaryOrder',
+  component: SummaryOrder,
+  meta: {
+    title: ns + "SummaryOrder"
+  }
+},
+
+{
+  path: '/WriteWord',
+  name: 'WriteWord',
+  component: WriteWord,
+  meta: {
+    title: ns + "WriteWord"
+  }
 },
 ]
 
