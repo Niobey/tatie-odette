@@ -1,6 +1,6 @@
 <template>
   <div class="print wrapper">
-    <router-link to="/ChooseModel">
+    <router-link to="/WriteWord">
       <button class="card">
         Ecrire un mot
       </button>
