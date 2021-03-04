@@ -49,6 +49,7 @@ body,
   padding: 0;
   width: 100%;
   font-family: "Playfair Display", serif;
+  font-weight: 600;
 }
 
 .wrapper {
@@ -73,13 +74,15 @@ body,
 .btn {
   background: var(--gold);
   border: none;
-  border-radius: 16px;
+  border-radius: 100px;
   color: var(--brown);
   display: flex;
   align-items: center;
   justify-content: center;
   min-width: 16em;
+  padding: 0.6em 3em 0.7em;
   box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+  font-size: 1.375em;
 }
 
 a {
