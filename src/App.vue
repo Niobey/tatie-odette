@@ -14,12 +14,7 @@ export default {
   components: {
     Navbar,
     Footer,
-  },
-  methods: {
-    showMenu: function() {
-      document.querySelector(".menu").classList.add("slideAnim");
-    },
-  },
+  }
 };
 </script>
 
@@ -43,6 +38,7 @@ html,
 body,
 #app {
   background: var(--grey);
+  color: var(--brown);
   font-size: var(--font-size);
   height: 100%;
   margin: 0;
@@ -50,6 +46,9 @@ body,
   width: 100%;
   font-family: "Playfair Display", serif;
   font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .wrapper {

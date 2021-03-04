@@ -19,6 +19,7 @@
   background-position-y: 30%;
   background-size: cover;
   flex-direction: column;
+  position: absolute;
 }
 
 .enter {

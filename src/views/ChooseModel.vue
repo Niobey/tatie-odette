@@ -1,27 +1,25 @@
 <template>
-  <div class="print wrapper">
-    <div>
-      <router-link to="/Emblem">
-        <button class="card">
-          Emblèmes
-        </button>
-      </router-link>
-      <router-link to="/Pictogram">
-        <button class="card">
-          Pictogrammes
-        </button>
-      </router-link>
-      <router-link to="/#">
-        <button class="card">
-          Modèles du moment
-        </button>
-      </router-link>
-    </div>
+  <div class="print">
+    <router-link to="/Emblem">
+      <button class="card">
+        Emblèmes
+      </button>
+    </router-link>
+    <router-link to="/Pictogram">
+      <button class="card">
+        Pictogrammes
+      </button>
+    </router-link>
+    <router-link to="/#">
+      <button class="card">
+        Modèles du moment
+      </button>
+    </router-link>
   </div>
 </template>
 
 <style lang="scss">
-.print div {
+.print {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
