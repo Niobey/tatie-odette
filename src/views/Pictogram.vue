@@ -41,12 +41,14 @@ h3{
 .card_prog{
   text-align: center;
   margin-bottom: 10vh;
-  background-color: #fff;
+  
 }
 
   img.card_img{
       width: 200px;
       height: 200px;
+      border: 1px solid #451E10 ;
+      border-radius: 20px;
     }
     
   
