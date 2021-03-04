@@ -11,7 +11,7 @@
           Pictogrammes
         </button>
       </router-link>
-      <router-link to="/#">
+      <router-link to="/Marvel">
         <button class="card">
           Modèles du moment
         </button>
