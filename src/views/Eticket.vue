@@ -20,6 +20,8 @@
       @input="onInputChange"
       placeholder="Email"
     >
+
+    
 <SimpleKeyboard @onChange="onChange" @onKeyPress="onKeyPress" :input="input"/>
   </div>
 </template>

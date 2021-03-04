@@ -27,6 +27,7 @@ footer {
   background: var(--brown);
   padding: 0.5em 2em;
   display: flex;
+  margin-top: 8vh;
   align-items: center;
   justify-content: space-between;
   color: var(--gold);
