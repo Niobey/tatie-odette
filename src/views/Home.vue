@@ -1,6 +1,8 @@
 <template>
   <div class="home wrapper">
-    <button class="btn enter">Touchez l'écran pour commencer</button>
+    <router-link to="/Format">
+      <button class="btn enter">Touchez l'écran pour commencer</button>
+    </router-link>
     <div class="flags">
       <button type="button" class="flag france"></button>
       <button type="button" class="flag spain"></button>

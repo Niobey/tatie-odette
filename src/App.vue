@@ -56,19 +56,24 @@ body,
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: auto;
+  flex-wrap: wrap;
+  height: 100%;
 }
 
 .card {
+  align-items: center;
   background: var(--gold);
   border: none;
   border-radius: 16px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   color: var(--brown);
   display: flex;
-  align-items: center;
+  font-size: 2em;
   justify-content: center;
-  min-height: 10em;
-  min-width: 16em;
-  box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+  margin: 1rem;
+  min-height: 12rem;
+  min-width: 20rem;
 }
 
 .btn {
@@ -79,9 +84,9 @@ body,
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 16em;
+  min-width: 16rem;
   padding: 0.6em 3em 0.7em;
-  box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   font-size: 1.375em;
 }
 
