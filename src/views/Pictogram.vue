@@ -1,13 +1,13 @@
 <template>
-  <div id="Pictogrammes">
+  <div id="Pictogrammes" class="models-library">
     <h1>Pictogrammes</h1>
 
-
-    <div class="container-fluid d-flex flex-wrap">
+    <div class="container-fluid d-flex flex-wrap justify-content-center">
       <div
-        class="card_prog col-md-6 col-xl-4"
+        class="card_model"
         v-for="(picto, index) in Pictos"
         :key="index"
+        @click="choosePrint(picto.name, picto.urlImage)"
       >
         <div class="card_title">
           <h3>{{ picto.name }}</h3>
@@ -16,51 +16,10 @@
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
-
-<style lang="scss">
-#Pictogrammes{
-
-h1{
-  text-align: center;
-  color: #451E10 ;
-  margin-top: 6vh;
-  margin-bottom: 8vh;
-  font-size: 1.75rem;
-
-}
-
-h3{
-  font-size: 1.25rem;
-  font-style: italic;
-}
-
-.card_prog{
-  text-align: center;
-  margin-bottom: 10vh;
-  
-}
-
-  img.card_img{
-      width: 200px;
-      height: 200px;
-      border: 1px solid #451E10 ;
-      border-radius: 20px;
-    }
-    
-  
-
-
-}
-
-</style>
-
 <script>
-
-
 let NamePicto = [
   "coeur",
   "cactus",
@@ -70,8 +29,6 @@ let NamePicto = [
   "terre",
   "Étoile",
   "Diamant",
-
-
 ];
 
 let url = [
@@ -83,53 +40,53 @@ let url = [
   "https://i.pinimg.com/originals/2f/be/df/2fbedfafeeecfe97bc8b5d0e6a7b1850.jpg",
   "data:image/png;base64,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",
   "https://www.vaugirard-demenagement.fr/wp-content/uploads/sites/6154/2018/06/picto-diamant.png",
-
 ];
 
-
-
 export default {
-      data(){
+  data() {
     return {
-
-     Pictos:[
-                {
-                    name: NamePicto[0],
-                    urlImage:url[0]
-                },
-                {
-                    name: NamePicto[1],
-                    urlImage: url[1]
-                },
-                {
-                    name: NamePicto[2],
-                    urlImage: url[2]
-                },
-                {
-                    name: NamePicto[3],
-                    urlImage: url[3]
-                },
-                {
-                    name: NamePicto[4],
-                    urlImage: url[4]
-                },
-                {
-                    name: NamePicto[5],
-                    urlImage: url[5]
-                },
-                {
-                    name: NamePicto[6],
-                    urlImage: url[6]
-                },
-                {
-                    name: NamePicto[7],
-                    urlImage: url[7]
-                },
-
-
-            ],
-    }
-}
-}
+      Pictos: [
+        {
+          name: NamePicto[0],
+          urlImage: url[0],
+        },
+        {
+          name: NamePicto[1],
+          urlImage: url[1],
+        },
+        {
+          name: NamePicto[2],
+          urlImage: url[2],
+        },
+        {
+          name: NamePicto[3],
+          urlImage: url[3],
+        },
+        {
+          name: NamePicto[4],
+          urlImage: url[4],
+        },
+        {
+          name: NamePicto[5],
+          urlImage: url[5],
+        },
+        {
+          name: NamePicto[6],
+          urlImage: url[6],
+        },
+        {
+          name: NamePicto[7],
+          urlImage: url[7],
+        },
+      ],
+    };
+  },
+  methods: {
+    choosePrint(choice, choiceUrl) {
+      localStorage.setItem("willPrint", choice);
+      localStorage.setItem("willPrintUrl", choiceUrl);
+      return this.$router.push("/ChoosePackaging");
+    },
+  },
+};
 </script>
-

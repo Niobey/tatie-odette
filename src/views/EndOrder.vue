@@ -14,12 +14,8 @@
 
     <div class="paymentChoice">
       <h2>Règlement</h2>
-      <router-link to="/Payment">
-        <button type="button" class="btn">En espèces</button>
-      </router-link>
-      <router-link to="/Payment">
-        <button type="button" class="btn">Par carte bancaire</button>
-      </router-link>
+      <button type="button" class="btn" @click="pay">En espèces</button>
+      <button type="button" class="btn" @click="pay">Par carte bancaire</button>
     </div>
   </div>
 </template>
@@ -52,6 +48,12 @@ export default {
 
     this.total = (this.price + this.giftPrice).toFixed(2);
   },
+  methods: {
+    pay() {
+      localStorage.setItem("Total", this.total);
+      return this.$router.push("/Payment");
+    },
+  },
 };
 </script>
 
@@ -73,7 +75,8 @@ export default {
 
   img {
     background-color: white;
-    max-width: 10rem;
+    width: 10rem;
+    height: 10rem;
     border-radius: 20px;
   }
 
@@ -110,7 +113,6 @@ export default {
 
   button {
     margin: 1em;
-    min-width: 16em;
   }
 }
 </style>

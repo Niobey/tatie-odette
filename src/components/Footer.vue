@@ -1,11 +1,9 @@
 <template>
   <footer>
-    <!-- <router-link to="/"> -->
     <button type="button" @click="goBack">
       <img src="../assets/previous.png" alt="Previous" />
     </button>
-    <!-- </router-link> -->
-    <h2>Choisissez une option</h2>
+    <h2>Tatie Odette</h2>
     <router-link to="/">
       <button type="button">
         <img src="../assets/home.png" alt="Home" />
@@ -32,9 +30,6 @@ footer {
   align-items: center;
   justify-content: space-between;
   color: var(--gold);
-  // position: fixed;
-  // bottom: 0;
-  // width: 100%;
 
   h2 {
     font-size: 1.3em;

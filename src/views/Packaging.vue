@@ -1,6 +1,6 @@
 <template>
   <div class="packaging">
-    <!-- <h1>Choisissez votre emballage</h1> -->
+    <h1>Choisissez votre emballage</h1>
     <div
       v-for="(packaging, index) in packagings"
       :key="index"

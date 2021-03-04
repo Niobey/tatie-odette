@@ -1,5 +1,5 @@
 <template>
-  <div id="emblem">
+  <div id="emblem" class="models-library">
     <h1>Emblèmes</h1>
 
     <div class="container-fluid d-flex flex-wrap justify-content-center">
@@ -19,34 +19,6 @@
   </div>
 </template>
 
-<style lang="scss">
-#emblem {
-  h1 {
-    text-align: center;
-    margin: 1em auto;
-    font-size: 1.75rem;
-  }
-
-  h3 {
-    font-size: 1.25rem;
-    font-style: italic;
-  }
-
-  .card_model {
-    text-align: center;
-    margin: 2em;
-  }
-
-  img.card_img {
-    width: 200px;
-    height: 200px;
-    border: 3px solid var(--gold);
-    border-radius: 20px;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  }
-}
-</style>
-
 <script>
 let NameEmblem = [
   "Biscuit Lu",
@@ -56,7 +28,7 @@ let NameEmblem = [
   "Le Pastis",
   "Grappe de Raisin",
   "La Baguette",
-  "La cathédrale de Strasbourg",
+  "Strasbourg",
 ];
 
 let url = [

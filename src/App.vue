@@ -14,7 +14,7 @@ export default {
   components: {
     Navbar,
     Footer,
-  }
+  },
 };
 </script>
 
@@ -76,17 +76,17 @@ body,
 }
 
 .btn {
+  align-items: center;
   background: var(--gold);
   border: none;
   border-radius: 100px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   color: var(--brown);
   display: flex;
-  align-items: center;
   justify-content: center;
-  min-width: 16rem;
-  padding: 0.6em 3em 0.7em;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   font-size: 1.375em;
+  min-width: 16em;
+  padding: 0.6em 3em 0.7em;
 }
 
 a {
@@ -96,5 +96,37 @@ a {
   &:hover {
     text-decoration: none;
   }
+}
+
+// MODELS LIBRARIES
+
+.models-library {
+  margin: auto;
+  max-width: 80em;
+
+  h1 {
+    text-align: center;
+    font-size: 1.75rem;
+    margin-bottom: 4vh;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    font-style: italic;
+  }
+}
+
+.card_model {
+  text-align: center;
+  margin: 1em;
+}
+
+.card_img {
+  width: 200px;
+  height: 200px;
+  border: 3px solid var(--gold);
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 </style>
