@@ -32,6 +32,9 @@ footer {
   align-items: center;
   justify-content: space-between;
   color: var(--gold);
+  // position: fixed;
+  // bottom: 0;
+  // width: 100%;
 
   h2 {
     font-size: 1.3em;

@@ -2,11 +2,12 @@
   <div id="emblem">
     <h1>Emblèmes</h1>
 
-    <div class="container-fluid d-flex flex-wrap">
+    <div class="container-fluid d-flex flex-wrap justify-content-center">
       <div
-        class="card_prog col-md-6 col-xl-4"
+        class="card_model"
         v-for="(emblem, index) in emblems"
         :key="index"
+        @click="choosePrint(emblem.name, emblem.urlImage)"
       >
         <div class="card_title">
           <h3>{{ emblem.name }}</h3>
@@ -22,9 +23,7 @@
 #emblem {
   h1 {
     text-align: center;
-    color: #451e10;
-    margin-top: 6vh;
-    margin-bottom: 8vh;
+    margin: 1em auto;
     font-size: 1.75rem;
   }
 
@@ -33,16 +32,17 @@
     font-style: italic;
   }
 
-  .card_prog {
+  .card_model {
     text-align: center;
-    margin-bottom: 10vh;
+    margin: 2em;
   }
 
   img.card_img {
     width: 200px;
     height: 200px;
-    border: 1px solid #451e10;
+    border: 3px solid var(--gold);
     border-radius: 20px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   }
 }
 </style>
@@ -108,6 +108,13 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    choosePrint(choice, choiceUrl) {
+      localStorage.setItem("willPrint", choice);
+      localStorage.setItem("willPrintUrl", choiceUrl);
+      return this.$router.push("/ChoosePackaging");
+    },
   },
 };
 </script>

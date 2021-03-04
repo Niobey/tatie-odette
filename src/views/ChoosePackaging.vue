@@ -22,7 +22,7 @@
 export default {
   data() {
     return {
-      gift: 0.8,
+      gift: 0.80,
     };
   },
   methods: {

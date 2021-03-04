@@ -4,7 +4,7 @@
     <div
       v-for="(packaging, index) in packagings"
       :key="index"
-      @click="choosePattern(packaging.name)"
+      @click="choosePattern(packaging.name, packaging.urlImage)"
     >
       <div>
         <p class="p-name">{{ packaging.name }}</p>
@@ -58,8 +58,9 @@ export default {
     };
   },
   methods: {
-    choosePattern(choice) {
+    choosePattern(choice, choiceUrl) {
       localStorage.setItem("pattern", choice);
+      localStorage.setItem("patternUrl", choiceUrl);
       return this.$router.push('/Eticket');
     },
   },

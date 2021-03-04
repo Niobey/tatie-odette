@@ -1,23 +1,17 @@
 <template>
   <div class="format wrapper">
-    <router-link to="/ChoosePrint">
-      <button class="card" @click="chooseFormat(7)">
-        Grand Format
+    <div v-for="(format, index) in formats" :key="index">
+      <button
+        class="card"
+        @click="chooseFormat(format.name, format.duration, format.price)"
+      >
+        {{ format.name }}
         <div class="infos">
-          <p>20 min</p>
-          <p>7€</p>
+          <p>{{ format.duration }} min</p>
+          <p>{{ format.price }} €</p>
         </div>
       </button>
-    </router-link>
-    <router-link to="/ChoosePrint">
-      <button class="card" @click="chooseFormat(4)">
-        Petit Format
-        <div class="infos">
-          <p>10 min</p>
-          <p>4€</p>
-        </div>
-      </button>
-    </router-link>
+    </div>
   </div>
 </template>
 
@@ -25,13 +19,26 @@
 export default {
   data() {
     return {
-      big: 7,
-      small: 4,
+      formats: [
+        {
+          name: "Grand format",
+          duration: 20,
+          price: 7,
+        },
+        {
+          name: "Petit Format",
+          duration: 10,
+          price: 4,
+        },
+      ],
     };
   },
   methods: {
-    chooseFormat(choice) {
-      localStorage.setItem("format", choice);
+    chooseFormat(name, duration, price) {
+      localStorage.setItem("format", name);
+      localStorage.setItem("duration", duration);
+      localStorage.setItem("price", price);
+      return this.$router.push("/ChoosePrint");
     },
   },
 };
