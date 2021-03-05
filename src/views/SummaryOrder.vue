@@ -43,7 +43,7 @@
   data(){
       return {
     timer: null,
-    totalTime: (20 * 60),
+    totalTime: null,
     resetButton: false,
     title: "Countdown to rest time!",
     edit: false
@@ -63,6 +63,7 @@
     }
   },
    beforeMount(){
+    this.totalTime = parseFloat(localStorage.duration) * 60;
     this.startTimer()
  },
   computed: {
