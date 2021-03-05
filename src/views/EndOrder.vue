@@ -12,6 +12,12 @@
       <p>{{ pattern }}</p>
     </div>
 
+    <div class="customerInfos">
+      <h3>Vos informations</h3>
+      <p>{{tel}}</p>
+      <p>{{mail}}</p>
+    </div>
+
     <div class="paymentChoice">
       <h2>Règlement</h2>
       <button type="button" class="btn" @click="pay">En espèces</button>
@@ -32,9 +38,19 @@ export default {
       giftPrice: null,
       price: null,
       total: null,
+      tel: null,
+      mail: null,
     };
   },
   mounted() {
+    if (localStorage.tel) {
+      this.tel = localStorage.tel;
+    }
+
+    if (localStorage.tel) {
+      this.mail = localStorage.mail;
+    }
+
     this.format = localStorage.format;
 
     this.willPrint = localStorage.willPrint;
@@ -71,7 +87,7 @@ export default {
   align-items: center;
   justify-items: center;
   font-size: 2rem;
-  margin: 2em auto;
+  margin: 2em auto 0.8em;
 
   img {
     background-color: white;
@@ -101,6 +117,22 @@ export default {
   }
 }
 
+.customerInfos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  h3 {
+    width: 100%;
+    text-align: center;
+  }
+
+  p {
+    font-family: "Heebo", sans-serif;
+    margin: 0 1em 0;
+  }
+}
+
 .paymentChoice {
   display: flex;
   flex-wrap: wrap;
@@ -108,6 +140,7 @@ export default {
 
   h2 {
     text-align: center;
+    margin-top: 0.8em;
     width: 100%;
   }
 

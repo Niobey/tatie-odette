@@ -1,8 +1,10 @@
 <template>
   <div class="payment">
     <h1>Total à payer</h1>
-    <div class="total">{{total}} €</div>
-    <p>Veuillez suivre les indications de la borne de paiement</p>
+    <div class="total">{{ total }} €</div>
+    <router-link to="/SummaryOrder">
+      <p>Veuillez suivre les indications de la borne de paiement</p>
+    </router-link>
   </div>
 </template>
 

@@ -11,6 +11,14 @@
   </div>
 </template>
 
+<script>
+export default {
+  mounted() {
+    localStorage.clear();
+  },
+};
+</script>
+
 <style lang="scss">
 .home {
   background-image: url("../assets/heart-clover-side.jpg");

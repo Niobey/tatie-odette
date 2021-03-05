@@ -77,7 +77,7 @@ export default {
     nextPage: function() {
       localStorage.setItem("tel", this.tel);
       localStorage.setItem("mail", this.mail);
-      return this.$router.push("/SummaryOrder");
+      return this.$router.push("/EndOrder");
     },
   },
 };
