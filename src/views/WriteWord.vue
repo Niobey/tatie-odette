@@ -8,8 +8,11 @@
       class="input message"
       @input="onInputChange"
       placeholder="Utilisez le clavier pour écrire votre message"
+      @click="showKeyboard()"
     >
+    <div class="keyboard">
     <SimpleKeyboard @onChange="onChange" @onKeyPress="onKeyPress" :input="input"/>
+    </div>
   </div>
 </template>
 
@@ -34,7 +37,20 @@ export default {
     },
     onInputChange(input) {
       this.input = input.target.value;
-    }
+    },
+     
+    showKeyboard: function() {
+      document.querySelector(".keyboard").classList.add("slideAnim");
+    },
+
+    
+
+    writeWord(input) {
+    localStorage.setItem("textWriten", input);
+
+    return this.$router.push("/ChoosePrint");
+    },
+  
   }
 };
 </script>
@@ -64,14 +80,39 @@ export default {
   border: none;
   box-sizing: border-box;
   margin-left: 25%;
-  margin-bottom: 18vh;
+  margin-bottom: 14vh;
 
 
   }
 .simple-keyboard {
   max-width: 850px;
-  text-align: center;
-   margin-left: 15%;
+   position: absolute;
+   margin-bottom: 20%;
+   margin-left: 9%;
+}
+.keyboard{
+  display: grid;
+  grid-template-rows: auto 20%;
+  height: 100%;
+  left: 100%;
+  margin: 0;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  z-index: 1200;
+}
+.slideAnim {
+  animation-name: slide;
+  animation-duration: 0.5s;
+  left: 0;
+}
+@keyframes slide {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0;
+  }
 }
 }
 </style>
