@@ -1,120 +1,146 @@
 <template>
   <div id="Eticket">
     <h1>Eticket</h1>
-    <p class="tel">Merci de remplir votre numéro de téléphone ou votre mail afin de récupérer le code de vérification.</p>
-    <p class="tel">Avec ce code vous pourrez récupérer votre commande.</p>
+    <p class="telBlock">
+      Merci de remplir votre numéro de téléphone ou votre mail afin de récupérer
+      le code de vérification.
+      <br />
+      Avec ce code vous pourrez récupérer votre commande.
+    </p>
 
     <input
-      :value="input"
-      class="input message"
-      @input="onInputChange"
+      :value="tel"
+      class="tel"
       placeholder="Téléphone"
-      @click="showKeyboard()"
-    >
+      @click="selectInput"
+    />
 
-    <p class="tel">Inscrivez votre adresse mail pour recevoir la vidéo de votre impression !
-</p>
+    <p class="telBlock">
+      Inscrivez votre adresse mail pour recevoir la vidéo de votre impression !
+    </p>
 
     <input
-      :value="input"
-      class="input message"
-      @input="onInputChange"
+      :value="mail"
+      class="mail"
       placeholder="Email"
-      @click="showKeyboard()"
-    >
+      @click="selectInput"
+    />
 
-    <div class="keyboard">
-<SimpleKeyboard @onChange="onChange" @onKeyPress="onKeyPress" :input="input"/>
-</div>
+    <button type="button" class="btn" @click="nextPage">Suivant</button>
+
+    <div class="keyboard" @focusout="hideKeyboard()">
+      <SimpleKeyboard :input="input" tabindex="0" @onKeyPress="onKeyPress" />
+    </div>
   </div>
 </template>
 
 <script>
 import SimpleKeyboard from "./SimpleKeyboard";
 
+let telNum = [];
+let eMail = [];
 
 export default {
-  name: "App",
   components: {
-    SimpleKeyboard
+    SimpleKeyboard,
   },
   data: () => ({
-    input: ""
+    input: null,
+    tel: "",
+    mail: "",
+    selectedInput: null,
   }),
   methods: {
-    onChange(input) {
-      this.input = input;
-    },
-    onKeyPress(button) {
-      console.log("button", button);
-    },
-    onInputChange(input) {
-      this.input = input.target.value;
-    },
-    showKeyboard: function() {
+    selectInput: function(e) {
+      this.selectedInput = e.target.classList[0];
+      localStorage.setItem("selectedInput", e.target.classList[0]);
       document.querySelector(".keyboard").classList.add("slideAnim");
     },
-  }
+    onKeyPress(button) {
+      // Regex pour chercher un nombre
+      var r = /\d+/;
+      if (this.selectedInput === "tel") {
+        if (button.match(r) != null) {
+          telNum.push(button);
+          let num = telNum.join("");
+          this.tel = num;
+        }
+      } else {
+        eMail.push(button);
+        let mail = eMail.join("");
+        this.mail = mail;
+      }
+    },
+    hideKeyboard: function() {
+      document.querySelector(".keyboard").classList.remove("slideAnim");
+    },
+    nextPage: function() {
+      localStorage.setItem("tel", this.tel);
+      localStorage.setItem("mail", this.mail);
+      return this.$router.push("/SummaryOrder");
+    },
+  },
 };
 </script>
 
-
 <style lang="scss">
-#Eticket{
+#Eticket {
   text-align: center;
-  h1{
-  text-align: center;
-  color: #451E10 ;
-  margin-bottom: 5vh;
-  font-size: 1.75rem;
-  text-align: center;
-
-}
-
-.tel{
-  text-align: center;
-  color: #000
-   ;
-}
-  input.message{
-  text-align: center;
-  width: 40vw;
-  margin-top: 1vh;
-  margin-bottom: 1vh ;
-  border-radius: 5px;
-  border:none;
-}
-
-.simple-keyboard {
-  max-width: 850px;
-   position: absolute;
-   margin-bottom: 20%;
-   margin-left: 9%;
-}
-.keyboard{
-  display: grid;
-  grid-template-rows: auto 20%;
-  height: 100%;
-  left: 100%;
-  margin: 0;
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
-  z-index: 1200;
-}
-.slideAnim {
-  animation-name: slide;
-  animation-duration: 0.5s;
-  left: 0;
-}
-@keyframes slide {
-  from {
-    left: 100%;
+  h1 {
+    margin-bottom: 5vh;
+    font-size: 1.75rem;
   }
-  to {
+
+  .telBlock {
+    text-align: center;
+    font-family: "Heebo", sans-serif;
+    font-size: 1.2em;
+    font-weight: normal;
+  }
+
+  input {
+    text-align: center;
+    width: 40vw;
+    margin: 0 auto 4em;
+    border-radius: 50px;
+    border: none;
+    padding: 0.4em 1em;
+  }
+
+  .simple-keyboard {
+    max-width: 850px;
+    position: absolute;
+    margin-bottom: 20%;
+    margin-left: 9%;
+  }
+  .keyboard {
+    display: grid;
+    grid-template-rows: auto 20%;
+    height: 100%;
+    left: 100%;
+    margin: 0;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    z-index: 1200;
+  }
+  .slideAnim {
+    animation-name: slide;
+    animation-duration: 0.5s;
     left: 0;
   }
-}
+  @keyframes slide {
+    from {
+      left: 100%;
+    }
+    to {
+      left: 0;
+    }
+  }
+
+  button {
+    margin: 0 auto;
+    padding: 0.4rem;
+  }
 }
 </style>
-
