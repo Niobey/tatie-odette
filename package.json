@@ -15,13 +15,8 @@
     "susy": "^3.0.6",
     "vue": "^2.6.12",
     "vue-router": "^3.2.0",
-<<<<<<< HEAD
     "vue-simple-accordion": "^0.1.0",
     "vue2-flip-countdown": "^0.11.1",
-    "vue2-leaflet": "^2.6.0"
-=======
-    "vue-simple-accordion": "^0.1.0"
->>>>>>> ac180d8d9915d020566b2a1f361f9709c9e8bd50
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
